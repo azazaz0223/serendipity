@@ -16,15 +16,12 @@
                     <li><a href="">首頁內容設定</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#" class="link"><span class="txt_color1 font15"><i class="fas fa-th-list"></i></span>
-                    綜合功能<div class="font10 txt_color6 float-end pe-1 me-2">▼</div></a>
-                <ul class="submenu" style="">
-                    <li><a href="">案例分享</a></li>
-                    <li><a href="">診所地圖</a></li>
-                    <li><a href="">評估單管理</a></li>
-                </ul>
-            </li>
+            <li><a href="#" class="link"><span class="txt_color4 font15"><i class="fab fa-microblog"></i></span>
+                    案例分享</a></li>
+            <li><a href="#" class="link"><span class="txt_color4 font15"><i
+                            class="fas fa-map-marked-alt"></i></span> 診所地圖</a></li>
+            <li><a href="#" class="link"><span class="txt_color4 font15"><i class="fas fa-th-list"></i></span>
+                    評估單管理</a></li>
         </ul>
     </div>
     <i class="fas fa-file-invoice-dollar"></i>
