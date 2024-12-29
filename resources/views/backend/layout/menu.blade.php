@@ -6,14 +6,23 @@
     <div class="list py-3">
         <ul id="accordion" class="accordion">
             <li>
-                <a href="#" class="link"><span class="txt_color1 font15"><i class="fas fa-desktop"></i></span> 前台設定<div
-                        class="font10 txt_color6 float-end pe-1 me-2">▼</div></a>
-                <ul class="submenu" style="display: block;">
-                    <li><a href="{{ route('backend.carousel.index') }}">LOGO與輪播設定</a></li>
-                    <li><a href="{{ route('backend.about.index') }}">關於我們</a></li>
-                    <li><a href="{{ route('backend.news.index') }}">最新消息</a></li>
-                    <li><a href="{{ route('backend.product.index') }}">服務項目</a></li>
-                    <li><a href="{{ route('backend.contact.index') }}">聯絡我們</a></li>
+                <a href="#" class="link"><span class="txt_color1 font15"><i class="fas fa-desktop"></i></span>
+                    首頁設定<div class="font10 txt_color6 float-end pe-1 me-2">▼</div></a>
+                <ul class="submenu" style="">
+                    <li><a href="">輪播banner</a></li>
+                    <li><a href="">影片設定</a></li>
+                    <li><a href="">診療心得分享</a></li>
+                    <li><a href="">Q&A</a></li>
+                    <li><a href="">首頁內容設定</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="link"><span class="txt_color1 font15"><i class="fas fa-th-list"></i></span>
+                    綜合功能<div class="font10 txt_color6 float-end pe-1 me-2">▼</div></a>
+                <ul class="submenu" style="">
+                    <li><a href="">案例分享</a></li>
+                    <li><a href="">診所地圖</a></li>
+                    <li><a href="">評估單管理</a></li>
                 </ul>
             </li>
         </ul>
