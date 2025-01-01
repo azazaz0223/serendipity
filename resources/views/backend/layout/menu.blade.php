@@ -12,7 +12,7 @@
                     <li><a href="">輪播banner</a></li>
                     <li><a href="">影片設定</a></li>
                     <li><a href="">診療心得分享</a></li>
-                    <li><a href="">Q&A</a></li>
+                    <li><a href="{{ route('backend.question.index') }}">Q&A</a></li>
                     <li><a href="">首頁內容設定</a></li>
                 </ul>
             </li>

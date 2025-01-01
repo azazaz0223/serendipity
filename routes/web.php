@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
@@ -29,5 +30,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
         Route::get('index', function () {
             return view('backend.index');
         })->name('backend.index');
+
+        Route::group(['namespace' => 'Question', 'prefix' => 'question'], function () {
+            Route::get('', [QuestionController::class, 'index'])->name('backend.question.index');
+            Route::get('api/{question}', [QuestionController::class, 'show'])->name('backend.question.show');
+            Route::patch('api/{question}', [QuestionController::class, 'update'])->name('backend.question.update');
+            Route::delete('api/{question}', [QuestionController::class, 'destroy'])->name('backend.question.delete');
+        });
     });
 });
