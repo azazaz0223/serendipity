@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ClinicController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +34,18 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
 
         Route::group(['namespace' => 'Question', 'prefix' => 'question'], function () {
             Route::get('', [QuestionController::class, 'index'])->name('backend.question.index');
+            Route::post('api', [QuestionController::class, 'store'])->name('backend.question.store');
             Route::get('api/{question}', [QuestionController::class, 'show'])->name('backend.question.show');
             Route::patch('api/{question}', [QuestionController::class, 'update'])->name('backend.question.update');
             Route::delete('api/{question}', [QuestionController::class, 'destroy'])->name('backend.question.delete');
+        });
+
+        Route::group(['namespace' => 'Clinic', 'prefix' => 'clinic'], function () {
+            Route::get('', [ClinicController::class, 'index'])->name('backend.clinic.index');
+            Route::post('api', [ClinicController::class, 'store'])->name('backend.clinic.store');
+            Route::get('api/{clinic}', [ClinicController::class, 'show'])->name('backend.clinic.show');
+            Route::patch('api/{clinic}', [ClinicController::class, 'update'])->name('backend.clinic.update');
+            Route::delete('api/{clinic}', [ClinicController::class, 'destroy'])->name('backend.clinic.delete');
         });
     });
 });

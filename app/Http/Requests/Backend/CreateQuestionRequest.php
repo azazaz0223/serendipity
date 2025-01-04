@@ -5,7 +5,7 @@ namespace App\Http\Requests\Backend;
 use App\Http\Requests\BaseRequest;
 
 
-class UpdateQuestionRequest extends BaseRequest
+class CreateQuestionRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.

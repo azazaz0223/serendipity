@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\CreateQuestionRequest;
 use App\Http\Requests\Backend\UpdateQuestionRequest;
 use App\Models\Question;
 use App\Services\Backend\QuestionService;
@@ -21,6 +22,16 @@ class QuestionController extends Controller
     {
         $questions = $this->questionService->findAll();
         return view("backend.question.list", compact('questions'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(CreateQuestionRequest $request)
+    {
+        $this->questionService->create($request->all());
+
+        return $this->successResponse(null, 200);
     }
 
     /**

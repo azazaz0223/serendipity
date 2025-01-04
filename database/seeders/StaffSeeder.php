@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Contact;
+use App\Models\Permission;
+use App\Models\Staff;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Schema;
+use Illuminate\Support\Facades\Schema;
 
-class ContactSeeder extends Seeder
+class StaffSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -16,8 +17,12 @@ class ContactSeeder extends Seeder
     public function run(): void
     {
         Schema::disableForeignKeyConstraints();
-        Contact::truncate();
-        Contact::factory(100)->create();
+        Staff::truncate();
+        Staff::create([
+            'account' => 'admin',
+            'name' => 'admin',
+            'password' => Hash::make('1111'),
+        ]);
         Schema::enableForeignKeyConstraints();
     }
 }

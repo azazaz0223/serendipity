@@ -16,6 +16,17 @@ class QuestionService
         return $this->questionRepository->findAll();
     }
 
+    public function create($request)
+    {
+        $data = [
+            'title' => $request['title'],
+            'answer' => $request['answer'],
+            'status' => $request['status'],
+            'sort' => $request['sort'],
+        ];
+        return $this->questionRepository->create($data);
+    }
+
     public function update($id, $request)
     {
         return $this->questionRepository->update($id, $request);
