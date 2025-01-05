@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\ClinicController;
 use App\Http\Controllers\Backend\QuestionController;
+use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
@@ -32,6 +33,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             return view('backend.index');
         })->name('backend.index');
 
+        // 影片設定模組
+        Route::group(['namespace' => 'Video', 'prefix' => 'video'], function () {
+            Route::get('', [VideoController::class, 'index'])->name('backend.video.index');
+            Route::post('api', [VideoController::class, 'save'])->name('backend.video.save');
+        });
+
+        // Q&A模組
         Route::group(['namespace' => 'Question', 'prefix' => 'question'], function () {
             Route::get('', [QuestionController::class, 'index'])->name('backend.question.index');
             Route::post('api', [QuestionController::class, 'store'])->name('backend.question.store');
@@ -40,6 +48,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::delete('api/{question}', [QuestionController::class, 'destroy'])->name('backend.question.delete');
         });
 
+        // 診所地圖模組
         Route::group(['namespace' => 'Clinic', 'prefix' => 'clinic'], function () {
             Route::get('', [ClinicController::class, 'index'])->name('backend.clinic.index');
             Route::post('api', [ClinicController::class, 'store'])->name('backend.clinic.store');
