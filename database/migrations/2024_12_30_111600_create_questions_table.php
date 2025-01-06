@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title', 255);
             $table->text('answer')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->boolean('status')->default(0);
             $table->integer('sort')->default(0);
             $table->timestamps();
         });

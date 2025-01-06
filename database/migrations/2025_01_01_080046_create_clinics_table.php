@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('line_id')->nullable()->comment('Line ID');
             $table->string('facebook')->nullable()->comment('Facebook 連結');
             $table->string('google_map')->nullable()->comment('Google Map 連結');
-            $table->boolean('status')->default(1)->comment('狀態');
+            $table->boolean('status')->default(0)->comment('狀態');
             $table->integer('sort')->default(0)->comment('排序');
             $table->timestamps();
         });
