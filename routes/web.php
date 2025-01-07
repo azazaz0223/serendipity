@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\ClinicController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Controllers\Backend\VideoController;
@@ -32,6 +33,15 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
         Route::get('index', function () {
             return view('backend.index');
         })->name('backend.index');
+
+        // 輪播 banner 模組
+        Route::group(['namespace' => 'Carousel', 'prefix' => 'carousel'], function () {
+            Route::get('', [CarouselController::class, 'index'])->name('backend.carousel.index');
+            Route::post('api', [CarouselController::class, 'store'])->name('backend.carousel.store');
+            Route::get('api/{carousel}', [CarouselController::class, 'show'])->name('backend.carousel.show');
+            Route::patch('api/{carousel}', [CarouselController::class, 'update'])->name('backend.carousel.update');
+            Route::delete('api/{carousel}', [CarouselController::class, 'destroy'])->name('backend.carousel.delete');
+        });
 
         // 影片設定模組
         Route::group(['namespace' => 'Video', 'prefix' => 'video'], function () {

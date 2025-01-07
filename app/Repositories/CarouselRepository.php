@@ -2,28 +2,28 @@
 
 namespace App\Repositories;
 
-use App\Models\Question;
+use App\Models\Carousel;
 
-class QuestionRepository
+class CarouselRepository
 {
     public function findAll()
     {
-        return Question::orderBy('sort', 'asc')->paginate(6);
+        return Carousel::orderBy('sort', 'asc')->paginate(6);
     }
 
-    public function create($request)
+    public function create($carousel)
     {
         try {
-            return Question::create($request);
+            return Carousel::create($carousel);
         } catch (\Exception $e) {
-            return false;
+            return $e;
         }
     }
 
     public function update($id, $request)
     {
         try {
-            return Question::where('id', $id)->update($request);
+            return Carousel::where('id', $id)->update($request);
         } catch (\Exception $e) {
             return false;
         }
@@ -32,7 +32,7 @@ class QuestionRepository
     public function delete($id)
     {
         try {
-            Question::destroy($id);
+            Carousel::destroy($id);
 
             return true;
         } catch (\Exception $e) {

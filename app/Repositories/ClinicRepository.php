@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Clinic;
-use Illuminate\Support\Facades\DB;
 
 class ClinicRepository
 {

@@ -221,7 +221,7 @@
         }
 
         function createBtn() {
-            $("#modal input, #modal select").val('');
+            clearBtn();
             $("#modalLabel").text('新增 診所地圖');
             $("#saveBtn").attr("onclick", `storeBtn()`);
             $("#modal").modal("show");
@@ -268,7 +268,7 @@
             url = "{{ route('backend.clinic.show', ':id') }}";
             url = url.replace(':id', id);
 
-            $("#modal input, #modal select").val('');
+            clearBtn();
 
             $.ajax({
                 url: url,
