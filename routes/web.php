@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\Backend\ShareExperienceController;
 use App\Http\Controllers\Backend\StaffController;
 
 
@@ -47,6 +48,15 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
         Route::group(['namespace' => 'Video', 'prefix' => 'video'], function () {
             Route::get('', [VideoController::class, 'index'])->name('backend.video.index');
             Route::post('api', [VideoController::class, 'save'])->name('backend.video.save');
+        });
+
+        // 診療心得分享模組
+        Route::group(['namespace' => 'ShareExperience', 'prefix' => 'shareExperience'], function () {
+            Route::get('', [ShareExperienceController::class, 'index'])->name('backend.shareExperience.index');
+            Route::post('api', [ShareExperienceController::class, 'store'])->name('backend.shareExperience.store');
+            Route::get('api/{shareExperience}', [ShareExperienceController::class, 'show'])->name('backend.shareExperience.show');
+            Route::patch('api/{shareExperience}', [ShareExperienceController::class, 'update'])->name('backend.shareExperience.update');
+            Route::delete('api/{shareExperience}', [ShareExperienceController::class, 'destroy'])->name('backend.shareExperience.delete');
         });
 
         // Q&A模組

@@ -11,7 +11,7 @@
                 <ul class="submenu" style="">
                     <li><a href="{{ route('backend.carousel.index') }}">輪播banner</a></li>
                     <li><a href="{{ route('backend.video.index') }}">影片設定</a></li>
-                    <li><a href="">診療心得分享</a></li>
+                    <li><a href="{{ route('backend.shareExperience.index') }}">診療心得分享</a></li>
                     <li><a href="{{ route('backend.question.index') }}">Q&A</a></li>
                     <li><a href="">首頁內容設定</a></li>
                 </ul>
