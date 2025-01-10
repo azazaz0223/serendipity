@@ -8,7 +8,6 @@ use App\Http\Requests\Backend\UpdateShareExperienceRequest;
 use App\Models\ShareExperience;
 use App\Services\Backend\ShareExperienceService;
 use App\Services\Backend\UploadImageService;
-use Illuminate\Http\Request;
 
 class ShareExperienceController extends Controller
 {

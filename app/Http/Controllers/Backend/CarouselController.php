@@ -8,7 +8,6 @@ use App\Http\Requests\Backend\UpdateCarouselRequest;
 use App\Models\Carousel;
 use App\Services\Backend\CarouselService;
 use App\Services\Backend\UploadImageService;
-use Illuminate\Http\Request;
 
 class CarouselController extends Controller
 {

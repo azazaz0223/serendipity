@@ -7,7 +7,6 @@ use App\Http\Requests\Backend\CreateClinicRequest;
 use App\Http\Requests\Backend\UpdateClinicRequest;
 use App\Models\Clinic;
 use App\Services\Backend\ClinicService;
-use Illuminate\Http\Request;
 
 class ClinicController extends Controller
 {
