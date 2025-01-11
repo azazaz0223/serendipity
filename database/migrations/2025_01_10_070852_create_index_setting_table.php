@@ -12,33 +12,35 @@ return new class extends Migration {
     {
         Schema::create('index_setting', function (Blueprint $table) {
             $table->id();
-            $table->string('subtitle_suitable_plan')->comment('我適合齒列矯正方案副標題');
-            $table->string('subtitle_four_steps')->comment('齒列矯正4步驟副標題');
+            $table->string('subtitle_suitable_plan', 100)->comment('我適合齒列矯正方案副標題');
+            $table->string('subtitle_four_steps', 50)->comment('齒列矯正4步驟副標題');
 
             for ($i = 1; $i <= 4; $i++) {
-                $table->string("step_{$i}_phase")->comment("齒列矯正步驟{$i}階段");
-                $table->text("step_{$i}_description")->comment("齒列矯正步驟{$i}說明");
-                $table->unsignedInteger("step_{$i}_price")->comment("XXX齒列矯正步驟{$i}金額 (新台幣)");
-                $table->string("step_{$i}_button")->comment("齒列矯正步驟{$i}按鈕");
+                $table->string("step_{$i}_phase", 20)->comment("齒列矯正步驟{$i}階段");
+                $table->string("step_{$i}_description", 20)->comment("齒列矯正步驟{$i}說明");
+                $table->string("step_{$i}_price", 20)->comment("齒列矯正步驟{$i}金額 (新台幣)");
+                $table->string("step_{$i}_button", 20)->comment("齒列矯正步驟{$i}按鈕");
             }
 
-            $table->string('subtitle_suitable_aligners')->comment('哪一種隱形牙套矯正方案比較適合副標題');
+            $table->string('subtitle_suitable_aligners', 50)->comment('哪一種隱形牙套矯正方案比較適合副標題');
 
             for ($i = 1; $i <= 3; $i++) {
-                $table->string("plan_{$i}_name")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}名稱");
-                $table->unsignedInteger("plan_{$i}_price")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}金額");
-                $table->string("plan_{$i}_severity")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}程度");
-                $table->string("plan_{$i}_region")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}區域");
-                $table->string("plan_{$i}_treatment")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}療程");
-                $table->text("plan_{$i}_description")->comment("哪一種隱形牙套矯正方案比較適合方案{$i}說明");
+                $table->string("plan_{$i}_name", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}名稱");
+                $table->string("plan_{$i}_price", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}金額 (新台幣)");
+                $table->string("plan_{$i}_severity", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}程度");
+                $table->string("plan_{$i}_region", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}區域");
+                $table->string("plan_{$i}_treatment", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}療程");
+                $table->string("plan_{$i}_description", 40)->comment("哪一種隱形牙套矯正方案比較適合方案{$i}說明");
             }
 
-            $table->string('subtitle_payment_methods')->comment('付款方式副標題');
+            $table->string('subtitle_payment_methods', 50)->comment('付款方式副標題');
+
+            $table->string('payment_full_amount', 36)->comment('付款方式一次付清');
 
             for ($i = 1; $i <= 3; $i++) {
-                $table->string("payment_{$i}_name")->comment("付款方式{$i}方案名稱");
-                $table->unsignedInteger("payment_{$i}_price")->comment("付款方式{$i}金額");
-                $table->text("payment_{$i}_description")->comment("付款方式{$i}說明");
+                $table->string("payment_{$i}_name", 12)->comment("付款方式{$i}方案名稱");
+                $table->string("payment_{$i}_price", 16)->comment("付款方式{$i}金額 (新台幣)");
+                $table->string("payment_{$i}_description", 12)->comment("付款方式{$i}說明");
             }
 
             $table->timestamps();
