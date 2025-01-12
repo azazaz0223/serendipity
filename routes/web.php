@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\ClinicController;
+use App\Http\Controllers\Backend\IndexSettingController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -59,13 +60,19 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::delete('api/{shareExperience}', [ShareExperienceController::class, 'destroy'])->name('backend.shareExperience.delete');
         });
 
-        // Q&A模組
+        // Q&A 模組
         Route::group(['namespace' => 'Question', 'prefix' => 'question'], function () {
             Route::get('', [QuestionController::class, 'index'])->name('backend.question.index');
             Route::post('api', [QuestionController::class, 'store'])->name('backend.question.store');
             Route::get('api/{question}', [QuestionController::class, 'show'])->name('backend.question.show');
             Route::patch('api/{question}', [QuestionController::class, 'update'])->name('backend.question.update');
             Route::delete('api/{question}', [QuestionController::class, 'destroy'])->name('backend.question.delete');
+        });
+
+        // 首頁設定模組
+        Route::group(['namespace' => 'IndexSetting', 'prefix' => 'indexSetting'], function () {
+            Route::get('', [IndexSettingController::class, 'index'])->name('backend.indexSetting.index');
+            Route::patch('api/{indexSetting}', [IndexSettingController::class, 'update'])->name('backend.indexSetting.update');
         });
 
         // 診所地圖模組

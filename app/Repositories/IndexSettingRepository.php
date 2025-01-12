@@ -8,7 +8,7 @@ class IndexSettingRepository
 {
     public function findAll()
     {
-        return IndexSetting::orderBy('sort', 'asc')->paginate(6);
+        return IndexSetting::find('1');
     }
 
     public function update($id, $request)

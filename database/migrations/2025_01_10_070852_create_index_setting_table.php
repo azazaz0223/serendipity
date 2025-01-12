@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('index_setting', function (Blueprint $table) {
+        Schema::create('index_settings', function (Blueprint $table) {
             $table->id();
             $table->string('subtitle_suitable_plan', 100)->comment('我適合齒列矯正方案副標題');
             $table->string('subtitle_four_steps', 50)->comment('齒列矯正4步驟副標題');
@@ -19,7 +19,7 @@ return new class extends Migration {
                 $table->string("step_{$i}_phase", 20)->comment("齒列矯正步驟{$i}階段");
                 $table->string("step_{$i}_description", 20)->comment("齒列矯正步驟{$i}說明");
                 $table->string("step_{$i}_price", 20)->comment("齒列矯正步驟{$i}金額 (新台幣)");
-                $table->string("step_{$i}_button", 20)->comment("齒列矯正步驟{$i}按鈕");
+                $table->string("step_{$i}_button")->comment("齒列矯正步驟{$i}按鈕");
             }
 
             $table->string('subtitle_suitable_aligners', 50)->comment('哪一種隱形牙套矯正方案比較適合副標題');
@@ -52,6 +52,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('index_setting');
+        Schema::dropIfExists('index_settings');
     }
 };

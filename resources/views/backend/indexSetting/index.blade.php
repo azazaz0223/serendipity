@@ -77,9 +77,9 @@
 
         <!-- 我適合SERENDIPITY的齒列矯正方案嗎？ Start -->
         <div class="card col-12 rounded-3 bg-white mb-4">
-            <h2 class="fs-5 p-3 fw-bold border-bottom"><span class="txt_color4">➤ </span>我適合SERENDIPITY的齒列矯正方案嗎？
-                <button type="button"
-                    class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3">更新</button>
+            <h2 class="fs-5 p-3 fw-bold border-bottom"><span class="txt_color4">➤ </span>我適合SERENDIPITY的齒列矯正方案嗎?
+                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3"
+                    onclick="updateBtn('subtitle_suitable_plan')">更新</button>
             </h2>
 
             <div class="card-body">
@@ -88,8 +88,7 @@
                         <div class="dive_sub">副標</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="副標">若是有輕度齒列問題，虎牙、暴牙、咬合不正等，
-都可以透過輕矯正，解決您的問題。</textarea>
+                        <textarea id="subtitle_suitable_plan" class="form-control search_input easein mb-0" rows="2">{{ $indexSetting->subtitle_suitable_plan }}</textarea>
                     </div>
                 </div>
             </div>
@@ -98,8 +97,8 @@
         <!-- SERENDIPITY齒列矯正4步驟 Start -->
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom"><span class="txt_color4">➤ </span>SERENDIPITY齒列矯正4步驟
-                <button type="button"
-                    class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3">更新</button>
+                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3"
+                    onclick="updateBtn('steps')">更新</button>
             </h2>
 
             <div class="card-body">
@@ -108,7 +107,7 @@
                         <div class="dive_sub">副標</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="副標">專屬諮詢師將全程陪伴您找回自信笑容！</textarea>
+                        <textarea id="subtitle_four_steps" class="form-control search_input easein mb-0" rows="2">{{ $indexSetting->subtitle_four_steps }}</textarea>
                     </div>
                 </div>
 
@@ -123,186 +122,52 @@
                         <div class="clear"></div>
 
                         <div class="tab_container">
-                            <!--tab1 步驟1-->
-                            <div id="tab_1-1" class="tab_content">
+                            @for ($i = 1; $i <= 4; $i++)
+                                <div id="tab_1-{{ $i }}" class="tab_content">
 
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
+                                    <div class="col-lg-12 col-12">
+                                        <div class="card border-light gray_l p-3">
 
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">階段</div>
+                                            <div class="d-flex justify-content-start gap-3 mb-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">階段</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="step_{{ $i }}_phase"
+                                                        class="form-control" value='{{ $indexSetting["step_{$i}_phase"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">說明</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="step_{{ $i }}_description"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["step_{$i}_description"] }}'>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control" placeholder="階段"
-                                                    value="完成">
+                                            <div class="d-flex justify-content-start gap-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">金額</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="step_{{ $i }}_price"
+                                                        class="form-control" value='{{ $indexSetting["step_{$i}_price"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">icon</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="file" class="form-control"
+                                                        id="step_{{ $i }}_button" aria-describedby="inputFileAdd"
+                                                        aria-label="Upload">
+                                                </div>
                                             </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control" placeholder="說明"
-                                                    value="線上評估">
-                                            </div>
+
                                         </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control" placeholder="金額"
-                                                    value="免費">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">icon</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="file" class="form-control" id="inputfile"
-                                                    aria-describedby="inputFileAdd" aria-label="Upload">
-                                            </div>
-                                        </div>
-
                                     </div>
+
                                 </div>
-
-                            </div>
-                            <!--tab1 end-->
-
-                            <!--tab2 步驟2-->
-                            <div id="tab_1-2" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">階段</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control" placeholder="階段"
-                                                    value="由專業牙醫師">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="進行第一次診療">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="金額" value="$ 3,000~5,000元">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">icon</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="file" class="form-control" id="inputfile"
-                                                    aria-describedby="inputFileAdd" aria-label="Upload">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab2 end-->
-
-                            <!--tab3 步驟3-->
-                            <div id="tab_1-3" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">階段</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="階段" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="金額" value="$ 72,000~144,000元">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">icon</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="file" class="form-control" id="inputfile"
-                                                    aria-describedby="inputFileAdd" aria-label="Upload">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab3 end-->
-
-                            <!--tab4 步驟4-->
-                            <div id="tab_1-4" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">階段</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="階段" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="金額" value="免費">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">icon</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="file" class="form-control" id="inputfile"
-                                                    aria-describedby="inputFileAdd" aria-label="Upload">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab4 end-->
-
+                            @endfor
                         </div>
                     </div>
                 </div>
@@ -312,8 +177,8 @@
         <!-- 哪一種隱形牙套矯正方案比較適合我？ Start -->
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom"><span class="txt_color4">➤ </span>哪一種隱形牙套矯正方案比較適合我？
-                <button type="button"
-                    class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3">更新</button>
+                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3"
+                    onclick="updateBtn('plan')">更新</button>
             </h2>
 
             <div class="card-body">
@@ -322,7 +187,7 @@
                         <div class="dive_sub">副標</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="副標">依據牙醫的建議，選擇合適的矯正計畫</textarea>
+                        <textarea id="subtitle_suitable_aligners" class="form-control search_input easein mb-0" rows="2">{{ $indexSetting->subtitle_suitable_aligners }}</textarea>
                     </div>
                 </div>
 
@@ -336,204 +201,73 @@
                         <div class="clear"></div>
 
                         <div class="tab_container">
-                            <!--tab1 方案1-->
-                            <div id="tab_2-1" class="tab_content">
+                            @for ($i = 1; $i <= 3; $i++)
+                                <div id="tab_2-{{ $i }}" class="tab_content">
 
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
+                                    <div class="col-lg-12 col-12">
+                                        <div class="card border-light gray_l p-3">
 
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
+                                            <div class="d-flex justify-content-start gap-3 mb-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">方案名稱</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="plan_{{ $i }}_name"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_name"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">金額</div>
+                                                </div>
+                                                <div class="w-auto input-group me-2">
+                                                    <span class="input-group-text bg-white">$</span>
+                                                    <input type="text" id="plan_{{ $i }}_price"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_price"] }}'>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="SERENDIPITY">
+                                            <div class="d-flex justify-content-start gap-3 mb-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">程度</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="plan_{{ $i }}_severity"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_severity"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">區域</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="plan_{{ $i }}_region"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_region"] }}'>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Clear ™">
+                                            <div class="d-flex justify-content-start gap-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">療程</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="plan_{{ $i }}_treatment"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_treatment"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">說明</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="plan_{{ $i }}_description"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["plan_{$i}_description"] }}'>
+                                                </div>
                                             </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="72,000">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">程度</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="程度" value="輕度、二次矯正">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">區域</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="區域" value="前排牙齒">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">療程</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="療程" value="療程約 3 ~ 9 個月">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="不用拔牙">
-                                            </div>
-                                        </div>
 
+                                        </div>
                                     </div>
+
                                 </div>
-
-                            </div>
-                            <!--tab1 end-->
-
-                            <!--tab2 方案2-->
-                            <div id="tab_2-2" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="SERENDIPITY">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Plus ™">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">程度</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="程度" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">區域</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="區域" value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">療程</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="療程" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab2 end-->
-
-                            <!--tab3 方案3-->
-                            <div id="tab_2-3" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="SERENDIPITY">
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Extra ™">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3 mb-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">程度</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="程度" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">區域</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="區域" value="">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">療程</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="療程" value="">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab3 end-->
-
+                            @endfor
                         </div>
                     </div>
                 </div>
@@ -543,8 +277,8 @@
         <!-- 依照您喜歡的方式付款 Start -->
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom"><span class="txt_color4">➤ </span>依照您喜歡的方式付款
-                <button type="button"
-                    class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3">更新</button>
+                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm px-3"
+                    onclick="updateBtn('payment')">更新</button>
             </h2>
 
             <div class="card-body">
@@ -553,7 +287,7 @@
                         <div class="dive_sub">副標</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="副標">一次全額付清、分期付款等支付方式，我們都接受！</textarea>
+                        <textarea id="subtitle_payment_methods" class="form-control search_input easein mb-0" rows="2">{{ $indexSetting->subtitle_payment_methods }}</textarea>
                     </div>
                 </div>
                 <div class="d-flex justify-content-start gap-3 mb-4">
@@ -561,7 +295,8 @@
                         <div class="dive_sub">一次付清</div>
                     </div>
                     <div class="col">
-                        <input type="text" id="" class="form-control" placeholder="一次付清" value="不定期提供優惠方案">
+                        <input type="text" id="payment_full_amount" class="form-control"
+                            value="{{ $indexSetting->payment_full_amount }}">
                     </div>
                 </div>
 
@@ -575,120 +310,47 @@
                         <div class="clear"></div>
 
                         <div class="tab_container">
-                            <!--tab1 方案1-->
-                            <div id="tab_3-1" class="tab_content">
+                            @for ($i = 1; $i <= 3; $i++)
+                                <div id="tab_3-{{ $i }}" class="tab_content">
 
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
+                                    <div class="col-lg-12 col-12">
+                                        <div class="card border-light gray_l p-3">
 
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
+                                            <div class="d-flex justify-content-start gap-3">
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">方案名稱</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="payment_{{ $i }}_name"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["payment_{$i}_name"] }}'>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">金額</div>
+                                                </div>
+                                                <div class="w-auto input-group me-2">
+                                                    <span class="input-group-text bg-white">$</span>
+                                                    <input type="text" id="payment_{{ $i }}_price"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["payment_{$i}_price"] }}'>
+                                                    <span class="input-group-text bg-white">/月</span>
+                                                </div>
+                                                <div class="w-auto col-1">
+                                                    <div class="dive_sub">說明</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" id="payment_{{ $i }}_description"
+                                                        class="form-control"
+                                                        value='{{ $indexSetting["payment_{$i}_description"] }}'>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Clear">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="6,000">
-                                                <span class="input-group-text bg-white">/月</span>
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="12個月零利率">
-                                            </div>
+
                                         </div>
-
                                     </div>
-                                </div>
 
-                            </div>
+                                </div>
+                            @endfor
                             <!--tab1 end-->
-
-                            <!--tab2 方案2-->
-                            <div id="tab_3-2" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Plus">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="10,000">
-                                                <span class="input-group-text bg-white">/月</span>
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="12個月零利率">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab2 end-->
-
-                            <!--tab3 方案3-->
-                            <div id="tab_3-3" class="tab_content">
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="card border-light gray_l p-3">
-
-                                        <div class="d-flex justify-content-start gap-3">
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">方案名稱</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="方案名稱" value="Extra">
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">金額</div>
-                                            </div>
-                                            <div class="w-auto input-group me-2">
-                                                <span class="input-group-text bg-white">$</span>
-                                                <input type="text" class="form-control" placeholder="金額"
-                                                    value="12,000">
-                                                <span class="input-group-text bg-white">/月</span>
-                                            </div>
-                                            <div class="w-auto col-1">
-                                                <div class="dive_sub">說明</div>
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="說明" value="12個月零利率">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--tab3 end-->
-
                         </div>
                     </div>
                 </div>
@@ -699,7 +361,6 @@
 
     <script>
         $(window).load(function() {
-
             // 預設顯示第一個 Tab
             var _showTab = 0;
             var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
@@ -725,81 +386,73 @@
             $("#tab_2-2, #tab_2-3").hide();
             $("#tab_3-2, #tab_3-3").hide();
         });
-    </script>
 
-    <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        let selectedFile = null;
+        function handleData(param) {
+            const data = new FormData();
+            data.append("param", param);
+            switch (param) {
+                case 'subtitle_suitable_plan':
+                    data.append("subtitle_suitable_plan", $("#subtitle_suitable_plan").val());
+                    break;
 
-        function reviewVideo(element) {
-            const file = element.files[0];
-            const previewContainer = $("#videoPreview");
+                case 'steps':
+                    data.append("subtitle_four_steps", $("#subtitle_four_steps").val());
+                    for (let i = 1; i <= 4; i++) {
+                        data.append(`step_${i}_phase`, $(`#step_${i}_phase`).val());
+                        data.append(`step_${i}_description`, $(`#step_${i}_description`).val());
+                        data.append(`step_${i}_price`, $(`#step_${i}_price`).val());
+                        let fileInput = $(`#step_${i}_button`)[0];
+                        if (fileInput && fileInput.files.length > 0) {
+                            data.append(`step_${i}_button`, fileInput.files[0]);
+                        }
+                    }
+                    break;
 
-            // 清空之前的預覽內容
-            previewContainer.empty();
+                case 'plan':
+                    data.append("subtitle_suitable_aligners", $("#subtitle_suitable_aligners").val());
+                    for (let i = 1; i <= 3; i++) {
+                        data.append(`plan_${i}_name`, $(`#plan_${i}_name`).val());
+                        data.append(`plan_${i}_price`, $(`#plan_${i}_price`).val());
+                        data.append(`plan_${i}_severity`, $(`#plan_${i}_severity`).val());
+                        data.append(`plan_${i}_region`, $(`#plan_${i}_region`).val());
+                        data.append(`plan_${i}_treatment`, $(`#plan_${i}_treatment`).val());
+                        data.append(`plan_${i}_description`, $(`#plan_${i}_description`).val());
+                    }
+                    break;
 
-            if (file) {
-                // 檢查檔案格式
-                const validFormats = ["video/mp4", "video/quicktime"]; // MOV 對應 MIME 類型是 video/quicktime
-                if (!validFormats.includes(file.type)) {
-                    previewContainer.html("<p style='color:red;'>請上傳 MP4 或 MOV 格式的影片。</p>");
-                    selectedFile = null;
-                    return;
-                }
-
-                // 創建預覽影片元素
-                const videoElement = $("<video>", {
-                    controls: true,
-                    width: "100%",
-                    css: {
-                        marginTop: "10px"
-                    },
-                });
-
-                // 設置影片來源
-                const fileURL = URL.createObjectURL(file);
-                videoElement.append($("<source>", {
-                    src: fileURL,
-                    type: 'video/mp4'
-                }));
-
-                // 插入到預覽區域
-                previewContainer.append(videoElement);
-                selectedFile = file;
-            } else {
-                previewContainer.html("<p>尚未選擇影片</p>");
-                selectedFile = null;
+                case 'payment':
+                    data.append("subtitle_payment_methods", $("#subtitle_payment_methods").val());
+                    data.append("payment_full_amount", $("#payment_full_amount").val());
+                    for (let i = 1; i <= 3; i++) {
+                        data.append(`payment_${i}_name`, $(`#payment_${i}_name`).val());
+                        data.append(`payment_${i}_price`, $(`#payment_${i}_price`).val());
+                        data.append(`payment_${i}_description`, $(`#payment_${i}_description`).val());
+                    }
+                    break;
             }
+
+            return data;
         }
 
-        function saveBtn() {
-            if (!selectedFile) {
-                Swal.fire({
-                    title: '請先選擇影片！',
-                    icon: 'error',
-                    timer: 3000
-                });
-
-                return
-            }
-
-            const formData = new FormData();
-            formData.append("video", selectedFile);
+        function updateBtn(param) {
+            data = handleData(param);
+            data.append('_method', 'PATCH');
 
             $.ajax({
-                url: "{{ route('backend.video.save') }}",
+                url: "{{ route('backend.indexSetting.update', '1') }}",
                 type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": csrfToken
                 },
-                data: formData,
+                data: data,
                 processData: false,
                 contentType: false,
                 success: function(response) {
                     if (response.code == '00') {
                         Swal.fire({
-                            title: '更換成功！',
+                            title: '修改成功！',
                             icon: 'success',
                             timer: 3000
                         }).then((result) => {

@@ -13,7 +13,7 @@
                     <li><a href="{{ route('backend.video.index') }}">影片設定</a></li>
                     <li><a href="{{ route('backend.shareExperience.index') }}">診療心得分享</a></li>
                     <li><a href="{{ route('backend.question.index') }}">Q&A</a></li>
-                    <li><a href="">首頁內容設定</a></li>
+                    <li><a href="{{ route('backend.indexSetting.index') }}">首頁內容設定</a></li>
                 </ul>
             </li>
             <li><a href="#" class="link"><span class="txt_color4 font15"><i class="fab fa-microblog"></i></span>
