@@ -20,10 +20,10 @@ class ShareExperience extends Model
     ];
 
     // 定義 ENUM 選項
-    const TYPE_SHORT = 'short';
-    const TYPE_LONG = 'long';
+    public const TYPE_SHORT = 'short';
+    public const TYPE_LONG = 'long';
 
-    const TYPES = [
+    public const TYPES = [
         self::TYPE_SHORT => '短',
         self::TYPE_LONG => '長',
     ];

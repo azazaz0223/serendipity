@@ -44,7 +44,6 @@ class UpdateShareExperienceRequest extends BaseRequest
             'status.boolean' => '上架狀態必須是布林值。',
             'sort.integer' => '排序必須是整數。',
             'sort.min' => '排序不能小於 0。',
-            'avatar.required' => '圖片是必須的。',
             'avatar.image' => '圖片必須是有效的圖像文件。',
             'avatar.mimes' => '圖片格式必須是 jpeg、png、jpg 或 gif。',
             'avatar.max' => '圖片大小不能超過 10MB。',
