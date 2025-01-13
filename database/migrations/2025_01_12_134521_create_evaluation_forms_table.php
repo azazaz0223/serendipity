@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->string('intraoral_image_2')->nullable()->comment('口內圖2');
             $table->string('intraoral_image_3')->nullable()->comment('口內圖3');
             $table->string('intraoral_image_4')->nullable()->comment('口內圖4');
+            $table->tinyInteger('status')->default(0)->comment('狀態');
             $table->text('notes')->nullable()->comment('諮詢備註');
-            $table->enum('status', ['pending', 'not_replied', 'contacted', 'booked'])->default('pending')->comment('狀態');
             $table->timestamps();
         });
     }

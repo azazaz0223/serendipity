@@ -20,7 +20,8 @@
                     案例分享</a></li>
             <li><a href="{{ route('backend.clinic.index') }}" class="link"><span class="txt_color4 font15"><i
                             class="fas fa-map-marked-alt"></i></span> 診所地圖</a></li>
-            <li><a href="#" class="link"><span class="txt_color4 font15"><i class="fas fa-th-list"></i></span>
+            <li><a href="{{ route('backend.evaluationForm.index') }}" class="link"><span class="txt_color4 font15"><i
+                            class="fas fa-th-list"></i></span>
                     評估單管理</a></li>
         </ul>
     </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\ClinicController;
+use App\Http\Controllers\Backend\EvaluationFormController;
 use App\Http\Controllers\Backend\IndexSettingController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Controllers\Backend\VideoController;
@@ -82,6 +83,16 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::get('api/{clinic}', [ClinicController::class, 'show'])->name('backend.clinic.show');
             Route::patch('api/{clinic}', [ClinicController::class, 'update'])->name('backend.clinic.update');
             Route::delete('api/{clinic}', [ClinicController::class, 'destroy'])->name('backend.clinic.delete');
+        });
+
+        // 評估單管理模組
+        Route::group(['namespace' => 'EvaluationForm', 'prefix' => 'evaluationForm'], function () {
+            Route::get('', [EvaluationFormController::class, 'index'])->name('backend.evaluationForm.index');
+            Route::get('create', [EvaluationFormController::class, 'create'])->name('backend.evaluationForm.create');
+            Route::post('api', [EvaluationFormController::class, 'store'])->name('backend.evaluationForm.store');
+            Route::get('api/{evaluationForm}', [EvaluationFormController::class, 'show'])->name('backend.evaluationForm.show');
+            Route::patch('api/{evaluationForm}', [EvaluationFormController::class, 'update'])->name('backend.evaluationForm.update');
+            Route::delete('api/{evaluationForm}', [EvaluationFormController::class, 'destroy'])->name('backend.evaluationForm.delete');
         });
     });
 });
