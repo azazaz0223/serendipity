@@ -1,6 +1,7 @@
 @extends('backend.layout.layout')
 
 @section('container')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/backend/main-min.css') }}">
     <!-- 麵包屑 Breadcrumb -->
     <nav class="" aria-label="breadcrumb">
         <ol class="breadcrumb d-flex justify-content-start lh-lg m-0 ms-3">
@@ -31,22 +32,15 @@
                             <option value="female">女性</option>
                         </select>
                     </div>
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">申請日期</div>
-                    </div>
-                    <div class="col">
-                        <input type="text" id="" class="form-control" placeholder="" value="2024-12-31"
-                            disabled="">
-                    </div>
                     <div class="w-auto">
                         <div class="dive_sub">狀態</div>
                     </div>
                     <div class="col-2">
-                        <select id="" class="select form-control">
-                            <option>申請中</option>
-                            <option>未回覆</option>
-                            <option>已聯繫</option>
-                            <option>已預約</option>
+                        <select id="status" class="select form-control">
+                            <option value="">請選擇狀態</option>
+                            @foreach (App\Models\EvaluationForm::STATUS as $key => $value)
+                                <option value="{{ $value }}">{{ $key }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -55,29 +49,29 @@
                         <div class="dive_sub">手機</div>
                     </div>
                     <div class="col-2">
-                        <input type="text" id="" class="form-control" placeholder="">
+                        <input type="text" id="phone" class="form-control" max="10w">
                     </div>
                     <div class="w-auto col-1">
                         <div class="dive_sub">Email</div>
                     </div>
                     <div class="col">
-                        <input type="text" id="" class="form-control" placeholder="">
+                        <input type="text" id="email" class="form-control">
                     </div>
                     <div class="w-auto col-1">
                         <div class="dive_sub">齒列問題</div>
                     </div>
                     <div class="col">
-                        <select id="" class="select form-control">
-                            <option>全部</option>
-                            <option>戽斗(反咬)</option>
-                            <option>開咬</option>
-                            <option>齒列擁擠</option>
-                            <option>錯咬</option>
-                            <option>暴牙</option>
-                            <option>深咬</option>
-                            <option>牙縫過大</option>
-                            <option>二次矯正</option>
-                            <option>我不確定</option>
+                        <select id="question" class="select form-control">
+                            <option value="">請選擇齒列問題</option>
+                            <option value="戽斗(反咬)">戽斗(反咬)</option>
+                            <option value="開咬">開咬</option>
+                            <option value="齒列擁擠">齒列擁擠</option>
+                            <option value="錯咬">錯咬</option>
+                            <option value="暴牙">暴牙</option>
+                            <option value="深咬">深咬</option>
+                            <option value="牙縫過大">牙縫過大</option>
+                            <option value="二次矯正">二次矯正</option>
+                            <option value="我不確定">我不確定</option>
                         </select>
                     </div>
                 </div>
@@ -86,15 +80,15 @@
                         <div class="dive_sub">想改善處</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="描述">我超級戽斗，醜爆</textarea>
+                        <textarea id="improvements" class="form-control search_input easein mb-0" rows="2" placeholder=""></textarea>
                     </div>
                 </div>
+
                 <div class="d-flex justify-content-start gap-3 mb-3">
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
                         <label class="mb-2">正面照</label>
                         <div class="c-mainCard__item">
                             <div class="l-upload l-upload--notSpace">
-
                                 <!-- 圖片 -->
                                 <div class="c-uploadBlock m-0 p-1" data-upload="data-upload">
                                     <div class="c-uploadBlock__upload border-0 rounded-3"
@@ -103,18 +97,19 @@
                                         <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
                                         <div class="c-uploadBlock__action">
                                             <div class="c-uploadBtn">
-                                                <input type="file" id="photo_1" class="c-uploadBtn__input"
+                                                <input type="file" id="intraoral_image_1" class="c-uploadBtn__input"
                                                     data-upload-input="data-upload-input">
                                                 <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
                                                 </div>
-                                                <label for="photo_1" class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
+                                                <label for="intraoral_image_1"
+                                                    class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="IMG_photo_1" src="#" class="c-uploadBlock__img"
-                                            data-upload-img="data-upload-img">
+                                        <img id="intraoral_image_1Img" src="{{ asset('images/backend/defaultImage.png') }}"
+                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
                                         <div class="c-uploadBlock__reUpload position-relative">
                                             <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
                                                 <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
@@ -143,19 +138,20 @@
                                         <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
                                         <div class="c-uploadBlock__action">
                                             <div class="c-uploadBtn">
-                                                <input type="file" id="photo_2" class="c-uploadBtn__input"
+                                                <input type="file" id="intraoral_image_2" class="c-uploadBtn__input"
                                                     data-upload-input="data-upload-input">
                                                 <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
                                                 </div>
-                                                <label for="photo_2"
+                                                <label for="intraoral_image_2"
                                                     class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="IMG_photo_2" src="#" class="c-uploadBlock__img"
-                                            data-upload-img="data-upload-img">
+                                        <img id="intraoral_image_2Img"
+                                            src="{{ asset('images/backend/defaultImage.png') }}"
+                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
                                         <div class="c-uploadBlock__reUpload position-relative">
                                             <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
                                                 <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
@@ -184,19 +180,20 @@
                                         <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
                                         <div class="c-uploadBlock__action">
                                             <div class="c-uploadBtn">
-                                                <input type="file" id="photo_3" class="c-uploadBtn__input"
+                                                <input type="file" id="intraoral_image_3" class="c-uploadBtn__input"
                                                     data-upload-input="data-upload-input">
                                                 <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
                                                 </div>
-                                                <label for="photo_3"
+                                                <label for="intraoral_image_3"
                                                     class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="IMG_photo_3" src="#" class="c-uploadBlock__img"
-                                            data-upload-img="data-upload-img">
+                                        <img id="intraoral_image_3Img"
+                                            src="{{ asset('images/backend/defaultImage.png') }}"
+                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
                                         <div class="c-uploadBlock__reUpload position-relative">
                                             <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
                                                 <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
@@ -225,19 +222,20 @@
                                         <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
                                         <div class="c-uploadBlock__action">
                                             <div class="c-uploadBtn">
-                                                <input type="file" id="photo_4" class="c-uploadBtn__input"
+                                                <input type="file" id="intraoral_image_4" class="c-uploadBtn__input"
                                                     data-upload-input="data-upload-input">
                                                 <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
                                                 </div>
-                                                <label for="photo_4"
+                                                <label for="intraoral_image_4"
                                                     class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="IMG_photo_4" src="#" class="c-uploadBlock__img"
-                                            data-upload-img="data-upload-img">
+                                        <img id="intraoral_image_4Img"
+                                            src="{{ asset('images/backend/defaultImage.png') }}"
+                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
                                         <div class="c-uploadBlock__reUpload position-relative">
                                             <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
                                                 <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
@@ -259,64 +257,142 @@
                         <div class="dive_sub">諮詢備註</div>
                     </div>
                     <div class="col">
-                        <textarea name="message_content" class="form-control search_input easein mb-0" rows="2" placeholder="諮詢備註"></textarea>
+                        <textarea id="notes" class="form-control search_input easein mb-0" rows="2"></textarea>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <a href="#" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3">新增</a>
-                <a href="#" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2">確認修改</a>
-                <a href="#" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2">清除</a>
-                <a href="assessment.php"
-                    class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2">返回列表</a>
+                <button type="button" class="btn btn-danger border-0 rounded-3 float-end shadow-sm px-3"
+                    onclick="clearBtn()">清除</button>
+                <button type="button" class="btn btn-primary border-0 rounded-3 float-end shadow-sm px-3 me-2"
+                    onclick="createBtn()">新增</button>
+                <button type="button" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2"
+                    href="{{ route('backend.evaluationForm.index') }}">返回列表</button>
             </div>
         </div>
     </div>
 
     <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
-    </script>
 
-    <script>
-        $("#progressbarTWInput").change(function() {
-            $("#preview_progressbarTW_imgs").html(""); // 清除預覽
-            readURL(this);
-        });
+        function clearBtn() {
+            $("input, select, textarea").val('');
+            for (let i = 1; i <= 4; i++) {
+                $(`#intraoral_image_${i}Img`).attr("src", "{{ asset('images/backend/defaultImage.png') }}");
+            }
+        }
 
-        function readURL(input) {
-            if (input.files && input.files.length >= 0) {
-                for (var i = 0; i < input.files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        var img = $("<img width='100%' height=''>").attr('src', e.target.result);
-                        $("#preview_progressbarTW_imgs").append(img);
-                    }
-                    reader.readAsDataURL(input.files[i]);
-                }
+        function createBtn() {
+            const data = new FormData();
+
+            if ($("#name").val() != "") {
+                data.append("name", $("#name").val());
             } else {
-                var noPictures = $("<p>尚未選擇圖片</p>");
-                $("#preview_progressbarTW_imgs").append(noPictures);
+                Swal.fire({
+                    icon: "error",
+                    title: "請輸入姓名",
+                    timer: 3000
+                });
+
+                return;
             }
-        }
-    </script>
 
-    <!-- JavaScript part -->
-    <script>
-        $("#single_img_input").change(function() {
-            readURL(this);
-        });
+            if ($("#status").val() != "") {
+                data.append("status", $("#status").val());
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "請選擇上架",
+                    timer: 3000
+                });
 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $("#preview_single_img").attr('src', e.target.result);
+                return;
+            }
+
+            if ($("#gender").val() != "") data.append("gender", $("#gender").val());
+
+            if ($("#phone").val() != "") {
+                data.append("phone", $("#phone").val());
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "請輸入手機",
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            if ($("#email").val() != "") {
+                data.append("email", $("#email").val());
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "請輸入E-mail",
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            if ($("#question").val() != "") {
+                data.append("question", $("#question").val());
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "請選擇齒列問題",
+                    timer: 3000
+                });
+
+                return;
+            }
+
+            for (let i = 1; i <= 4; i++) {
+                let fileInput = $(`#intraoral_image_${i}`)[0];
+                if (fileInput && fileInput.files.length > 0) {
+                    data.append(`intraoral_image_${i}`, fileInput.files[0]);
                 }
-                reader.readAsDataURL(input.files[0]);
             }
+
+            if ($("#improvements").val() != "") data.append("improvements", $("#improvements").val());
+
+            if ($("#notes").val() != "") data.append("notes", $("#notes").val());
+
+            $.ajax({
+                url: "{{ route('backend.evaluationForm.store') }}",
+                type: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": csrfToken
+                },
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response.code == '00') {
+                        Swal.fire({
+                            title: '新增成功！',
+                            icon: 'success',
+                            timer: 3000
+                        }).then((result) => {
+                            location.href = "{{ route('backend.evaluationForm.index') }}";
+                        });
+                    };
+                },
+                error: function(xhr, status, error) {
+                    alert_text = JSON.parse(xhr.responseText).message;
+
+                    if (xhr.status == '403') {
+                        alert_text = "無此權限";
+                    }
+
+                    Swal.fire({
+                        icon: "error",
+                        title: alert_text,
+                        timer: 3000
+                    });
+                }
+            });
         }
     </script>
-
-
-    <script src="js/plugins-min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/plugins-min.js') }}"></script>
 @endsection

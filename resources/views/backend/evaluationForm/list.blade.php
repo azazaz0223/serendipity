@@ -35,8 +35,8 @@
                     <div class="col-2">
                         <select id="status" class="select form-control">
                             <option value="">全部</option>
-                            @foreach (App\Models\EvaluationForm::STATUS as $value => $name)
-                                <option value="{{ $value }}">{{ $name }}</option>
+                            @foreach (App\Models\EvaluationForm::STATUS as $key => $value)
+                                <option value="{{ $value }}">{{ $key }}</option>
                             @endforeach
                         </select>
                     </div>

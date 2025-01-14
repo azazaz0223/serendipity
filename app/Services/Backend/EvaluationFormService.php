@@ -7,7 +7,8 @@ use App\Repositories\EvaluationFormRepository;
 class EvaluationFormService
 {
     public function __construct(
-        private EvaluationFormRepository $evaluationFormRepository
+        private UploadImageService $uploadImageService,
+        private EvaluationFormRepository $evaluationFormRepository,
     ) {
     }
 
@@ -18,19 +19,50 @@ class EvaluationFormService
 
     public function create($request)
     {
-        $carousel = [
+        $data = [
             'name' => $request['name'],
-            'link' => $request['link'],
+            'gender' => $request['gender'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+            'question' => $request['question'],
+            'improvements' => $request['improvements'],
             'status' => $request['status'],
-            'sort' => $request['sort'],
+            'notes' => $request['notes'],
         ];
 
-        return $this->evaluationFormRepository->create($carousel);
+        $evaluationForm = $this->evaluationFormRepository->create($data);
+
+        for ($i = 1; $i <= 4; $i++) {
+            $fileKey = "intraoral_image_{$i}";
+            if ($request->hasFile($fileKey) && $request->file($fileKey)->isValid()) {
+                $data[$fileKey] = $this->uploadImageService->uploadImage($evaluationForm->id, 'evaluationForm', $request->file($fileKey));
+            }
+        }
+
+        return $this->evaluationFormRepository->update($evaluationForm->id, $data);
     }
 
     public function update($id, $request)
     {
-        return $this->evaluationFormRepository->update($id, $request);
+        $data = [
+            'name' => $request['name'],
+            'gender' => $request['gender'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+            'question' => $request['question'],
+            'improvements' => $request['improvements'],
+            'status' => $request['status'],
+            'notes' => $request['notes'],
+        ];
+
+        for ($i = 1; $i <= 4; $i++) {
+            $fileKey = "intraoral_image_{$i}";
+            if ($request->hasFile($fileKey) && $request->file($fileKey)->isValid()) {
+                $data[$fileKey] = $this->uploadImageService->uploadImage($id, 'evaluationForm', $request->file($fileKey));
+            }
+        }
+
+        return $this->evaluationFormRepository->update($id, $data);
     }
 
     public function delete($id)

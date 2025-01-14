@@ -6,7 +6,7 @@ use App\Http\Requests\BaseRequest;
 use App\Models\EvaluationForm;
 
 
-class CreateEvaluationFormRequest extends BaseRequest
+class UpdateEvaluationFormRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.

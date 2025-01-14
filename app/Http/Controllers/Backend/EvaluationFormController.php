@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\CreateEvaluationFormRequest;
+use App\Http\Requests\Backend\UpdateEvaluationFormRequest;
 use App\Models\EvaluationForm;
 use App\Services\Backend\EvaluationFormService;
 use App\Services\Backend\UploadImageService;
@@ -12,7 +14,6 @@ class EvaluationFormController extends Controller
 {
     public function __construct(
         private EvaluationFormService $evaluationFormService,
-        private UploadImageService $uploadImageService,
     ) {
     }
 
@@ -36,12 +37,9 @@ class EvaluationFormController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateEvaluationFormRequest $request)
     {
-        $carousel = $this->evaluationFormService->create($request->all());
-
-        $image_url = $this->uploadImageService->uploadImage($carousel->id, 'carousel', $request->file('image'));
-        $this->evaluationFormService->update($carousel->id, ["image" => $image_url]);
+        $this->evaluationFormService->create($request);
 
         return $this->successResponse(null, 200);
     }
@@ -57,20 +55,10 @@ class EvaluationFormController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EvaluationForm $evaluationForm)
+    public function update(UpdateEvaluationFormRequest $request, EvaluationForm $evaluationForm)
     {
-        $data = [
-            'name' => $request['name'],
-            'link' => $request['link'],
-            'status' => $request['status'],
-            'sort' => $request['sort'],
-        ];
+        $this->evaluationFormService->update($evaluationForm->id, $request);
 
-        $this->evaluationFormService->update($evaluationForm->id, $data);
-
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $this->uploadImageService->uploadImage($evaluationForm->id, 'carousel', $request->file('image'));
-        }
         return $this->successResponse(null, 200);
     }
 
@@ -79,11 +67,7 @@ class EvaluationFormController extends Controller
      */
     public function destroy(EvaluationForm $evaluationForm)
     {
-        $is_deleted = $this->evaluationFormService->delete($evaluationForm->id);
-
-        if ($is_deleted) {
-            $this->uploadImageService->deleteImage($evaluationForm->id, "carousel");
-        }
+        $this->evaluationFormService->delete($evaluationForm->id);
 
         return $this->successResponse(null, 200);
     }

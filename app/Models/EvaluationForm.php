@@ -24,15 +24,15 @@ class EvaluationForm extends Model
         'notes',
     ];
 
-    public const STATUS_PENDING = 0;
-    public const STATUS_NOT_REPLIED = 1;
-    public const STATUS_CONTACTED = 2;
-    public const STATUS_BOOKED = 3;
+    public const STATUS_PENDING = '申請中';
+    public const STATUS_NOT_REPLIED = '未回覆';
+    public const STATUS_CONTACTED = '已連繫';
+    public const STATUS_BOOKED = '已預約';
 
     public const STATUS = [
-        self::STATUS_PENDING => '申請中',
-        self::STATUS_NOT_REPLIED => '未回覆',
-        self::STATUS_CONTACTED => '已連繫',
-        self::STATUS_BOOKED => '已預約',
+        self::STATUS_PENDING => 0,
+        self::STATUS_NOT_REPLIED => 1,
+        self::STATUS_CONTACTED => 2,
+        self::STATUS_BOOKED => 3,
     ];
 }
