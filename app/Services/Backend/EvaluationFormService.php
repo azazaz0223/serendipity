@@ -67,6 +67,16 @@ class EvaluationFormService
 
     public function delete($id)
     {
-        return $this->evaluationFormRepository->delete($id);
+        $is_deleted = $this->evaluationFormRepository->delete($id);
+
+        if ($is_deleted) {
+
+            for ($i = 1; $i <= 4; $i++) {
+                $fileKey = "{$id}_intraoral_image_{$i}";
+                $this->uploadImageService->deleteImage($fileKey, "evaluationForm");
+            }
+        }
+
+        return $is_deleted;
     }
 }

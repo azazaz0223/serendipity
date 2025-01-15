@@ -120,16 +120,48 @@
                                 <td>{{ $evaluationForm->email }}</td>
                                 <td>{{ $evaluationForm->phone }}</td>
                                 <td>{{ $evaluationForm->question }}</td>
-                                @if ($evaluationForm->is_upload)
+                                @if (
+                                    $evaluationForm->intraoral_image_1 ||
+                                        $evaluationForm->intraoral_image_2 ||
+                                        $evaluationForm->intraoral_image_3 ||
+                                        $evaluationForm->intraoral_image_4)
                                     <td class="text-primary">已上傳</td>
                                 @else
                                     <td class="text-danger">未上傳</td>
                                 @endif
-                                <td>
-                                    <span class="badge rounded-pill bg-success text-dark bg-opacity-25 fs-6 fw-normal">
-                                        已回覆
-                                    </span>
-                                </td>
+                                @switch($evaluationForm->status)
+                                    @case(0)
+                                        <td>
+                                            <span class="badge rounded-pill bg-secondary text-dark bg-opacity-25 fs-6 fw-normal">
+                                                申請中
+                                            </span>
+                                        </td>
+                                    @break
+
+                                    @case(1)
+                                        <td>
+                                            <span class="badge rounded-pill bg-warning text-dark bg-opacity-25 fs-6 fw-normal">
+                                                未回覆
+                                            </span>
+                                        </td>
+                                    @break
+
+                                    @case(2)
+                                        <td>
+                                            <span class="badge rounded-pill bg-primary text-dark bg-opacity-25 fs-6 fw-normal">
+                                                已連繫
+                                            </span>
+                                        </td>
+                                    @break
+
+                                    @case(3)
+                                        <td>
+                                            <span class="badge rounded-pill bg-success text-dark bg-opacity-25 fs-6 fw-normal">
+                                                已預約
+                                            </span>
+                                        </td>
+                                    @break
+                                @endswitch
                                 <td>
                                     <button type="button" class="btn btn-light rounded-3 shadow-sm"
                                         onclick="editBtn({{ $evaluationForm->id }})">
@@ -156,43 +188,10 @@
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
         function editBtn(id) {
-            url = "{{ route('backend.question.show', ':id') }}";
+            url = "{{ route('backend.evaluationForm.show', ':id') }}";
             url = url.replace(':id', id);
 
-            clearBtn();
-
-            $.ajax({
-                url: url,
-                type: "GET",
-                headers: {
-                    "X-CSRF-TOKEN": csrfToken
-                },
-                success: function(response) {
-                    if (response.code == '00') {
-                        $("#modalLabel").text('編輯 Q&A');
-                        $("#title").val(response.data.title);
-                        $("#answer").val(response.data.answer);
-                        $("#status").val(response.data.status);
-                        $("#sort").val(response.data.sort);
-                        $("#saveBtn").attr("onclick", `updateBtn(${id})`);
-                        $("#modal").modal("show");
-                    };
-                },
-                error: function(xhr, status, error) {
-                    let alert_text = "發生不可預期的錯誤";
-
-                    if (xhr.status == '403') {
-                        alert_text = "無此權限";
-                    }
-
-                    Swal.fire({
-                        icon: "error",
-                        title: alert_text,
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                }
-            });
+            location.href = url;
         }
 
         function deleteConfirmBtn(id) {
@@ -207,7 +206,7 @@
                 cancelButtonText: '取消',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    url = "{{ route('backend.question.delete', ':id') }}";
+                    url = "{{ route('backend.evaluationForm.delete', ':id') }}";
                     url = url.replace(':id', id);
                     $.ajax({
                         url: url,

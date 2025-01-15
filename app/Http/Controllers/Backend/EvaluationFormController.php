@@ -49,7 +49,7 @@ class EvaluationFormController extends Controller
      */
     public function show(EvaluationForm $evaluationForm)
     {
-        return $this->successResponse($evaluationForm, 200);
+        return view("backend.evaluationForm.edit", compact('evaluationForm'));
     }
 
     /**

@@ -5,13 +5,13 @@
     <nav class="" aria-label="breadcrumb">
         <ol class="breadcrumb d-flex justify-content-start lh-lg m-0 ms-3">
             <li class="breadcrumb-item">評估單管理</li>
-            <li class="breadcrumb-item col">新增評估單</li>
+            <li class="breadcrumb-item col">編輯評估單</li>
         </ol>
     </nav>
 
     <div class="container-fluid p-3 m-1">
         <div class="card col-12 rounded-3 bg-white mb-4">
-            <h2 class="fs-5 p-3 fw-bold border-bottom">新增評估單</h2>
+            <h2 class="fs-5 p-3 fw-bold border-bottom">編輯評估單</h2>
 
             <div class="card-body border-bottom">
                 <div class="d-flex justify-content-start gap-3 mb-3">
@@ -19,7 +19,7 @@
                         <div class="dive_sub">姓名</div>
                     </div>
                     <div class="col-2">
-                        <input type="text" id="name" class="form-control">
+                        <input type="text" id="name" class="form-control" value="{{ $evaluationForm->name }}">
                     </div>
                     <div class="w-auto col-1">
                         <div class="dive_sub">性別</div>
@@ -27,8 +27,8 @@
                     <div class="col-2">
                         <select id="gender" class="select form-control">
                             <option value="">請選擇性別</option>
-                            <option value="male">男性</option>
-                            <option value="female">女性</option>
+                            <option value="male" @selected($evaluationForm->gender == 'male')>男性</option>
+                            <option value="female" @selected($evaluationForm->gender == 'female')>女性</option>
                         </select>
                     </div>
                     <div class="w-auto">
@@ -38,7 +38,8 @@
                         <select id="status" class="select form-control">
                             <option value="">請選擇狀態</option>
                             @foreach (App\Models\EvaluationForm::STATUS as $key => $value)
-                                <option value="{{ $value }}">{{ $key }}</option>
+                                <option value="{{ $value }}" @selected($evaluationForm->status == $value)>{{ $key }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -48,13 +49,14 @@
                         <div class="dive_sub">手機</div>
                     </div>
                     <div class="col-2">
-                        <input type="text" id="phone" class="form-control" max="10">
+                        <input type="text" id="phone" class="form-control" max="10"
+                            value="{{ $evaluationForm->phone }}">
                     </div>
                     <div class="w-auto col-1">
                         <div class="dive_sub">Email</div>
                     </div>
                     <div class="col">
-                        <input type="text" id="email" class="form-control">
+                        <input type="text" id="email" class="form-control" value="{{ $evaluationForm->email }}">
                     </div>
                     <div class="w-auto col-1">
                         <div class="dive_sub">齒列問題</div>
@@ -62,15 +64,15 @@
                     <div class="col">
                         <select id="question" class="select form-control">
                             <option value="">請選擇齒列問題</option>
-                            <option value="戽斗(反咬)">戽斗(反咬)</option>
-                            <option value="開咬">開咬</option>
-                            <option value="齒列擁擠">齒列擁擠</option>
-                            <option value="錯咬">錯咬</option>
-                            <option value="暴牙">暴牙</option>
-                            <option value="深咬">深咬</option>
-                            <option value="牙縫過大">牙縫過大</option>
-                            <option value="二次矯正">二次矯正</option>
-                            <option value="我不確定">我不確定</option>
+                            <option value="戽斗(反咬)" @selected($evaluationForm->question == '戽斗(反咬)')>戽斗(反咬)</option>
+                            <option value="開咬" @selected($evaluationForm->question == '開咬')>開咬</option>
+                            <option value="齒列擁擠" @selected($evaluationForm->question == '齒列擁擠')>齒列擁擠</option>
+                            <option value="錯咬" @selected($evaluationForm->question == '錯咬')>錯咬</option>
+                            <option value="暴牙" @selected($evaluationForm->question == '暴牙')>暴牙</option>
+                            <option value="深咬" @selected($evaluationForm->question == '深咬')>深咬</option>
+                            <option value="牙縫過大" @selected($evaluationForm->question == '牙縫過大')>牙縫過大</option>
+                            <option value="二次矯正" @selected($evaluationForm->question == '二次矯正')>二次矯正</option>
+                            <option value="我不確定" @selected($evaluationForm->question == '我不確定')>我不確定</option>
                         </select>
                     </div>
                 </div>
@@ -79,7 +81,7 @@
                         <div class="dive_sub">想改善處</div>
                     </div>
                     <div class="col">
-                        <textarea id="improvements" class="form-control search_input easein mb-0" rows="2"></textarea>
+                        <textarea id="improvements" class="form-control search_input easein mb-0" rows="2">{{ $evaluationForm->improvements }}</textarea>
                     </div>
                 </div>
 
@@ -123,7 +125,7 @@
                         <div class="dive_sub">諮詢備註</div>
                     </div>
                     <div class="col">
-                        <textarea id="notes" class="form-control search_input easein mb-0" rows="2"></textarea>
+                        <textarea id="notes" class="form-control search_input easein mb-0" rows="2">{{ $evaluationForm->notes }}</textarea>
                     </div>
                 </div>
             </div>

@@ -90,7 +90,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::get('', [EvaluationFormController::class, 'index'])->name('backend.evaluationForm.index');
             Route::get('create', [EvaluationFormController::class, 'create'])->name('backend.evaluationForm.create');
             Route::post('api', [EvaluationFormController::class, 'store'])->name('backend.evaluationForm.store');
-            Route::get('api/{evaluationForm}', [EvaluationFormController::class, 'show'])->name('backend.evaluationForm.show');
+            Route::get('{evaluationForm}', [EvaluationFormController::class, 'show'])->name('backend.evaluationForm.show');
             Route::patch('api/{evaluationForm}', [EvaluationFormController::class, 'update'])->name('backend.evaluationForm.update');
             Route::delete('api/{evaluationForm}', [EvaluationFormController::class, 'destroy'])->name('backend.evaluationForm.delete');
         });
