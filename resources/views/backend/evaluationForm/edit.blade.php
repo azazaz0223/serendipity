@@ -49,7 +49,7 @@
                         <div class="dive_sub">手機</div>
                     </div>
                     <div class="col-2">
-                        <input type="text" id="phone" class="form-control" max="10"
+                        <input type="text" id="phone" class="form-control" maxlength="10"
                             value="{{ $evaluationForm->phone }}">
                     </div>
                     <div class="w-auto col-1">

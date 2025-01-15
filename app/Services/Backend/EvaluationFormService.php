@@ -12,9 +12,9 @@ class EvaluationFormService
     ) {
     }
 
-    public function findAll()
+    public function findAll($request)
     {
-        return $this->evaluationFormRepository->findAll();
+        return $this->evaluationFormRepository->findAll($request);
     }
 
     public function create($request)
@@ -58,7 +58,7 @@ class EvaluationFormService
         for ($i = 1; $i <= 4; $i++) {
             $fileKey = "intraoral_image_{$i}";
             if ($request->hasFile($fileKey) && $request->file($fileKey)->isValid()) {
-                $data[$fileKey] = $this->uploadImageService->uploadImage($id, 'evaluationForm', $request->file($fileKey));
+                $data[$fileKey] = $this->uploadImageService->uploadImage($id . "_" . $fileKey, 'evaluationForm', $request->file($fileKey));
             }
         }
 

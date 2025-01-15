@@ -19,80 +19,86 @@
             </h2>
 
             <div class="card-body border-bottom">
-                <div class="d-flex justify-content-start gap-3 mb-3">
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">查詢期間</div>
+                <form method="GET">
+                    <div class="d-flex justify-content-start gap-3 mb-3">
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">查詢期間</div>
+                        </div>
+                        <div class="col">
+                            <input type="date" name="started_at" class="form-control datepicker"
+                                value="{{ request('started_at') }}">
+                        </div>
+                        <div class="col">
+                            <input type="date" name="ended_at" class="form-control datepicker"
+                                value="{{ request('ended_at') }}">
+                        </div>
+                        <div class="w-auto">
+                            <div class="dive_sub">狀態</div>
+                        </div>
+                        <div class="col-2">
+                            <select name="status" class="select form-control">
+                                <option value="">全部</option>
+                                @foreach (App\Models\EvaluationForm::STATUS as $key => $value)
+                                    <option value="{{ $value }}" @selected(request('status') == "$value")>{{ $key }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="col">
-                        <input type="date" id="started_at" class="form-control datepicker">
+                    <div class="d-flex justify-content-start gap-3 mb-3">
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">客戶姓名</div>
+                        </div>
+                        <div class="col-2">
+                            <input type="text" name="name" class="form-control" value="{{ request('name') }}">
+                        </div>
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">Email</div>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="email" class="form-control" value="{{ request('email') }}">
+                        </div>
                     </div>
-                    <div class="col">
-                        <input type="date" id="ended_at" class="form-control datepicker">
+                    <div class="d-flex justify-content-start gap-3 mb-3">
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">手機號碼</div>
+                        </div>
+                        <div class="col-2">
+                            <input type="text" name="phone" class="form-control" maxlength="10"
+                                value="{{ request('phone') }}">
+                        </div>
+                        <div class="w-auto">
+                            <div class="dive_sub">照片</div>
+                        </div>
+                        <div class="col">
+                            <select name="is_upload" class="select form-control">
+                                <option value="">全部</option>
+                                <option value="0" @selected(request('is_upload') == '0')>未上傳</option>
+                                <option value="1 "@selected(request('is_upload') == '1')>已上傳</option>
+                            </select>
+                        </div>
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">齒列問題</div>
+                        </div>
+                        <div class="col">
+                            <select name="question" class="select form-control">
+                                <option value="">全部</option>
+                                <option value="戽斗(反咬)" @selected(request('question') == '戽斗(反咬)')>戽斗(反咬)</option>
+                                <option value="開咬" @selected(request('question') == '開咬')>開咬</option>
+                                <option value="齒列擁擠" @selected(request('question') == '齒列擁擠')>齒列擁擠</option>
+                                <option value="錯咬" @selected(request('question') == '錯咬')>錯咬</option>
+                                <option value="暴牙" @selected(request('question') == '暴牙')>暴牙</option>
+                                <option value="深咬" @selected(request('question') == '深咬')>深咬</option>
+                                <option value="牙縫過大" @selected(request('question') == '牙縫過大')>牙縫過大</option>
+                                <option value="二次矯正" @selected(request('question') == '二次矯正')>二次矯正</option>
+                                <option value="我不確定" @selected(request('question') == '我不確定')>我不確定</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="w-auto">
-                        <div class="dive_sub">狀態</div>
-                    </div>
-                    <div class="col-2">
-                        <select id="status" class="select form-control">
-                            <option value="">全部</option>
-                            @foreach (App\Models\EvaluationForm::STATUS as $key => $value)
-                                <option value="{{ $value }}">{{ $key }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-start gap-3 mb-3">
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">客戶姓名</div>
-                    </div>
-                    <div class="col-2">
-                        <input type="text" id="name" class="form-control">
-                    </div>
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">Email</div>
-                    </div>
-                    <div class="col">
-                        <input type="text" id="email" class="form-control">
-                    </div>
-                </div>
-                <div class="d-flex justify-content-start gap-3 mb-3">
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">手機號碼</div>
-                    </div>
-                    <div class="col-2">
-                        <input type="text" id="phone" class="form-control">
-                    </div>
-                    <div class="w-auto">
-                        <div class="dive_sub">照片</div>
-                    </div>
-                    <div class="col">
-                        <select id="is_upload" class="select form-control">
-                            <option value="">全部</option>
-                            <option value="0">未上傳</option>
-                            <option value="1">已上傳</option>
-                        </select>
-                    </div>
-                    <div class="w-auto col-1">
-                        <div class="dive_sub">齒列問題</div>
-                    </div>
-                    <div class="col">
-                        <select id="question" class="select form-control">
-                            <option value="">全部</option>
-                            <option value="戽斗(反咬)">戽斗(反咬)</option>
-                            <option value="開咬">開咬</option>
-                            <option value="齒列擁擠">齒列擁擠</option>
-                            <option value="錯咬">錯咬</option>
-                            <option value="暴牙">暴牙</option>
-                            <option value="深咬">深咬</option>
-                            <option value="牙縫過大">牙縫過大</option>
-                            <option value="二次矯正">二次矯正</option>
-                            <option value="我不確定">我不確定</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2">
-                    查詢
-                </button>
+                    <button type="submit" class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2">
+                        查詢
+                    </button>
+                </form>
             </div>
 
             <div class="card-body toScroll text-nowrap">
@@ -186,6 +192,52 @@
 
     <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        function searchBtn() {
+            data = {};
+
+            if ($("#started_at").val() != "") data.started_at = $("#started_at").val();
+            if ($("#ended_at").val() != "") data.ended_at = $("#ended_at").val();
+            if ($("#status").val() != "") data.status = $("#status").val();
+            if ($("#name").val() != "") data.name = $("#name").val();
+            if ($("#email").val() != "") data.email = $("#email").val();
+            if ($("#phone").val() != "") data.phone = $("#phone").val();
+            if ($("#is_upload").val() != "") data.is_upload = $("#is_upload").val();
+            if ($("#question").val() != "") data.question = $("#question").val();
+
+            $.ajax({
+                url: "{{ route('backend.evaluationForm.index') }}",
+                type: "GET",
+                headers: {
+                    "X-CSRF-TOKEN": csrfToken
+                },
+                success: function(response) {
+                    if (response.code == '00') {
+                        Swal.fire({
+                            title: '刪除成功！',
+                            icon: 'success',
+                            timer: 3000
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert_text = JSON.parse(xhr.responseText).message;
+
+                    if (xhr.status == '403') {
+                        alert_text = "無此權限";
+                    }
+
+                    Swal.fire({
+                        icon: "error",
+                        title: alert_text,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+            });
+        }
 
         function editBtn(id) {
             url = "{{ route('backend.evaluationForm.show', ':id') }}";

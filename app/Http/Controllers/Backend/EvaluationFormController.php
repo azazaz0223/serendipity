@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateEvaluationFormRequest;
+use App\Http\Requests\Backend\FindEvaluationFormRequest;
 use App\Http\Requests\Backend\UpdateEvaluationFormRequest;
 use App\Models\EvaluationForm;
 use App\Services\Backend\EvaluationFormService;
@@ -20,9 +21,9 @@ class EvaluationFormController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(FindEvaluationFormRequest $request)
     {
-        $evaluationForms = $this->evaluationFormService->findAll();
+        $evaluationForms = $this->evaluationFormService->findAll($request);
         return view("backend.evaluationForm.list", compact('evaluationForms'));
     }
 
