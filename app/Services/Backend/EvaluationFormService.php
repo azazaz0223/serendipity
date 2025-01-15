@@ -35,7 +35,7 @@ class EvaluationFormService
         for ($i = 1; $i <= 4; $i++) {
             $fileKey = "intraoral_image_{$i}";
             if ($request->hasFile($fileKey) && $request->file($fileKey)->isValid()) {
-                $data[$fileKey] = $this->uploadImageService->uploadImage($evaluationForm->id, 'evaluationForm', $request->file($fileKey));
+                $data[$fileKey] = $this->uploadImageService->uploadImage($evaluationForm->id . "_" . $fileKey, 'evaluationForm', $request->file($fileKey));
             }
         }
 

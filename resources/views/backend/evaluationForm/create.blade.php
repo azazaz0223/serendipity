@@ -1,7 +1,6 @@
 @extends('backend.layout.layout')
 
 @section('container')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/backend/main-min.css') }}">
     <!-- 麵包屑 Breadcrumb -->
     <nav class="" aria-label="breadcrumb">
         <ol class="breadcrumb d-flex justify-content-start lh-lg m-0 ms-3">
@@ -86,172 +85,39 @@
 
                 <div class="d-flex justify-content-start gap-3 mb-3">
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">正面照</label>
-                        <div class="c-mainCard__item">
-                            <div class="l-upload l-upload--notSpace">
-                                <!-- 圖片 -->
-                                <div class="c-uploadBlock m-0 p-1" data-upload="data-upload">
-                                    <div class="c-uploadBlock__upload border-0 rounded-3"
-                                        data-upload-trigger="data-upload-trigger">
-                                        <div class="c-uploadBlock__head c-uploadBlock__head">上傳正面照</div>
-                                        <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
-                                        <div class="c-uploadBlock__action">
-                                            <div class="c-uploadBtn">
-                                                <input type="file" id="intraoral_image_1" class="c-uploadBtn__input"
-                                                    data-upload-input="data-upload-input">
-                                                <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
-                                                </div>
-                                                <label for="intraoral_image_1"
-                                                    class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="intraoral_image_1Img" src="{{ asset('images/backend/defaultImage.png') }}"
-                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
-                                        <div class="c-uploadBlock__reUpload position-relative">
-                                            <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
-                                                <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
-                                                </div>
-                                                <div class="c-reUploadBtn__text">重新選擇</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="c-uploadBlock__error">尚未填寫</div><br>
-                                </div>
-                                <!-- 圖片 end -->
-
-                            </div>
-                        </div>
+                        <label class="mb-2">上傳正面照</label>
+                        <input type="file" id="intraoral_image_1"
+                            class="form-control search_input product-hover border- easein"
+                            accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
+                        <img id="intraoral_image_1Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
                     </div>
+
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">上排牙齒</label>
-                        <div class="c-mainCard__item">
-                            <div class="l-upload l-upload--notSpace">
-
-                                <!-- 圖片 -->
-                                <div class="c-uploadBlock m-0 p-1" data-upload="data-upload">
-                                    <div class="c-uploadBlock__upload border-0 rounded-3"
-                                        data-upload-trigger="data-upload-trigger">
-                                        <div class="c-uploadBlock__head c-uploadBlock__head">上傳上排牙齒</div>
-                                        <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
-                                        <div class="c-uploadBlock__action">
-                                            <div class="c-uploadBtn">
-                                                <input type="file" id="intraoral_image_2" class="c-uploadBtn__input"
-                                                    data-upload-input="data-upload-input">
-                                                <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
-                                                </div>
-                                                <label for="intraoral_image_2"
-                                                    class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="intraoral_image_2Img"
-                                            src="{{ asset('images/backend/defaultImage.png') }}"
-                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
-                                        <div class="c-uploadBlock__reUpload position-relative">
-                                            <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
-                                                <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
-                                                </div>
-                                                <div class="c-reUploadBtn__text">重新選擇</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="c-uploadBlock__error">尚未填寫</div><br>
-                                </div>
-                                <!-- 圖片 end -->
-
-                            </div>
-                        </div>
+                        <label class="mb-2">上傳上排牙齒</label>
+                        <input type="file" id="intraoral_image_2"
+                            class="form-control search_input product-hover border- easein"
+                            accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
+                        <img id="intraoral_image_2Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
                     </div>
+
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">下排牙齒</label>
-                        <div class="c-mainCard__item">
-                            <div class="l-upload l-upload--notSpace">
-
-                                <!-- 圖片 -->
-                                <div class="c-uploadBlock m-0 p-1" data-upload="data-upload">
-                                    <div class="c-uploadBlock__upload border-0 rounded-3"
-                                        data-upload-trigger="data-upload-trigger">
-                                        <div class="c-uploadBlock__head c-uploadBlock__head">上傳下排牙齒</div>
-                                        <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
-                                        <div class="c-uploadBlock__action">
-                                            <div class="c-uploadBtn">
-                                                <input type="file" id="intraoral_image_3" class="c-uploadBtn__input"
-                                                    data-upload-input="data-upload-input">
-                                                <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
-                                                </div>
-                                                <label for="intraoral_image_3"
-                                                    class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="intraoral_image_3Img"
-                                            src="{{ asset('images/backend/defaultImage.png') }}"
-                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
-                                        <div class="c-uploadBlock__reUpload position-relative">
-                                            <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
-                                                <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
-                                                </div>
-                                                <div class="c-reUploadBtn__text">重新選擇</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="c-uploadBlock__error">尚未填寫</div><br>
-                                </div>
-                                <!-- 圖片 end -->
-
-                            </div>
-                        </div>
+                        <label class="mb-2">上傳下排牙齒</label>
+                        <input type="file" id="intraoral_image_3"
+                            class="form-control search_input product-hover border- easein"
+                            accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
+                        <img id="intraoral_image_3Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
                     </div>
+
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">側臉照片</label>
-                        <div class="c-mainCard__item">
-                            <div class="l-upload l-upload--notSpace">
-
-                                <!-- 圖片 -->
-                                <div class="c-uploadBlock m-0 p-1" data-upload="data-upload">
-                                    <div class="c-uploadBlock__upload border-0 rounded-3"
-                                        data-upload-trigger="data-upload-trigger">
-                                        <div class="c-uploadBlock__head c-uploadBlock__head">上傳側臉照片</div>
-                                        <div class="c-uploadBlock__icon c-uploadBlock__icon--idFront"></div>
-                                        <div class="c-uploadBlock__action">
-                                            <div class="c-uploadBtn">
-                                                <input type="file" id="intraoral_image_4" class="c-uploadBtn__input"
-                                                    data-upload-input="data-upload-input">
-                                                <div class="c-uploadBtn__icon"><i class="far fa-image"></i>
-                                                </div>
-                                                <label for="intraoral_image_4"
-                                                    class="c-uploadBtn__label text-dark">選擇拍照或上傳圖片</label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="c-uploadBlock__show" data-upload-show="data-upload-show">
-                                        <img id="intraoral_image_4Img"
-                                            src="{{ asset('images/backend/defaultImage.png') }}"
-                                            class="c-uploadBlock__img" data-upload-img="data-upload-img">
-                                        <div class="c-uploadBlock__reUpload position-relative">
-                                            <a class="c-reUploadBtn" data-upload-reupload="data-upload-reupload">
-                                                <div class="c-reUploadBtn__icon"><i class="fas fa-redo-alt"></i>
-                                                </div>
-                                                <div class="c-reUploadBtn__text">重新選擇</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="c-uploadBlock__error">尚未填寫</div><br>
-                                </div>
-                                <!-- 圖片 end -->
-
-                            </div>
-                        </div>
+                        <label class="mb-2">上傳側臉照片</label>
+                        <input type="file" id="intraoral_image_4"
+                            class="form-control search_input product-hover border- easein"
+                            accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
+                        <img id="intraoral_image_4Img" class="mt-3"
+                            src="{{ asset('images/backend/defaultImage.png') }}" />
                     </div>
                 </div>
+
                 <div class="d-flex justify-content-start gap-3 mb-3">
                     <div class="w-auto col-1">
                         <div class="dive_sub">諮詢備註</div>
@@ -274,6 +140,16 @@
 
     <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        function reviewImage(element) {
+            if (element.files && element.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $(`#${element.id}Img`).attr('src', e.target.result);
+                }
+                reader.readAsDataURL(element.files[0]);
+            }
+        }
 
         function clearBtn() {
             $("input, select, textarea").val('');
@@ -394,5 +270,4 @@
             });
         }
     </script>
-    <script src="{{ asset('js/plugins-min.js') }}"></script>
 @endsection
