@@ -31,6 +31,12 @@
                             <option value="female" @selected($evaluationForm->gender == 'female')>女性</option>
                         </select>
                     </div>
+                    <div class="w-auto col-1">
+                        <div class="dive_sub">申請日期</div>
+                    </div>
+                    <div class="col">
+                        <div class="form-control">{{ $evaluationForm->created_at }}</div>
+                    </div>
                     <div class="w-auto">
                         <div class="dive_sub">狀態</div>
                     </div>
@@ -107,7 +113,8 @@
                         <input type="file" id="intraoral_image_3"
                             class="form-control search_input product-hover border- easein"
                             accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
-                        <img id="intraoral_image_3Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
+                        <img id="intraoral_image_3Img" class="mt-3"
+                            src="{{ asset('images/backend/defaultImage.png') }}">
                     </div>
 
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
