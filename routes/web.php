@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\CarouselController;
+use App\Http\Controllers\Backend\CaseShareController;
 use App\Http\Controllers\Backend\ClinicController;
 use App\Http\Controllers\Backend\EvaluationFormController;
 use App\Http\Controllers\Backend\IndexSettingController;
@@ -11,10 +12,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ShareExperienceController;
 use App\Http\Controllers\Backend\StaffController;
-
-
 use App\Http\Middleware\BackendAuthenticated;
-
+use UniSharp\LaravelFilemanager\Lfm;
 
 // 前台路由
 Route::get('', [IndexController::class, 'index'])->name('frontend.index');
@@ -76,6 +75,16 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::patch('api/{indexSetting}', [IndexSettingController::class, 'update'])->name('backend.indexSetting.update');
         });
 
+        // 案例分享模組
+        Route::group(['namespace' => 'CaseShare', 'prefix' => 'caseShare'], function () {
+            Route::get('', [CaseShareController::class, 'index'])->name('backend.caseShare.index');
+            Route::get('create', [CaseShareController::class, 'create'])->name('backend.caseShare.create');
+            Route::post('api', [CaseShareController::class, 'store'])->name('backend.caseShare.store');
+            Route::get('{caseShare}', [CaseShareController::class, 'show'])->name('backend.caseShare.show');
+            Route::patch('api/{caseShare}', [CaseShareController::class, 'update'])->name('backend.caseShare.update');
+            Route::delete('api/{caseShare}', [CaseShareController::class, 'destroy'])->name('backend.caseShare.delete');
+        });
+
         // 診所地圖模組
         Route::group(['namespace' => 'Clinic', 'prefix' => 'clinic'], function () {
             Route::get('', [ClinicController::class, 'index'])->name('backend.clinic.index');
@@ -95,4 +104,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::delete('api/{evaluationForm}', [EvaluationFormController::class, 'destroy'])->name('backend.evaluationForm.delete');
         });
     });
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Lfm::routes();
 });

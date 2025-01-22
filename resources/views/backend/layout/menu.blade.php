@@ -16,7 +16,8 @@
                     <li><a href="{{ route('backend.indexSetting.index') }}">首頁內容設定</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="link"><span class="txt_color4 font15"><i class="fab fa-microblog"></i></span>
+            <li><a href="{{ route('backend.caseShare.index') }}" class="link"><span class="txt_color4 font15"><i
+                            class="fab fa-microblog"></i></span>
                     案例分享</a></li>
             <li><a href="{{ route('backend.clinic.index') }}" class="link"><span class="txt_color4 font15"><i
                             class="fas fa-map-marked-alt"></i></span> 診所地圖</a></li>

@@ -26,10 +26,10 @@ class CaseShareRepository
         return $query->orderByDesc('created_at')->paginate(10);
     }
 
-    public function create($EvaluationForm)
+    public function create($caseShare)
     {
         try {
-            return CaseShare::create($EvaluationForm);
+            return CaseShare::create($caseShare);
         } catch (\Exception $e) {
             return $e;
         }
