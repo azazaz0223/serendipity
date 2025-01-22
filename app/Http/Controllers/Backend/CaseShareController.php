@@ -8,7 +8,6 @@ use App\Http\Requests\Backend\FindCaseShareRequest;
 use App\Http\Requests\Backend\UpdateCaseShareRequest;
 use App\Models\CaseShare;
 use App\Services\Backend\CaseShareService;
-use Illuminate\Http\Request;
 
 class CaseShareController extends Controller
 {
@@ -22,7 +21,7 @@ class CaseShareController extends Controller
      */
     public function index(FindCaseShareRequest $request)
     {
-        $caseShares = $this->caseShareService->findAll($request->all());
+        $caseShares = $this->caseShareService->findAll($request);
         return view("backend.caseShare.list", compact('caseShares'));
     }
 

@@ -140,7 +140,7 @@
                 <button type="button" class="btn btn-danger border-0 rounded-3 float-end shadow-sm px-3"
                     onclick="clearBtn()">清除</button>
                 <button type="button" class="btn btn-primary border-0 rounded-3 float-end shadow-sm px-3 me-2"
-                    onclick="createBtn()">新增</button>
+                    onclick="updateBtn()">修改</button>
                 <a class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3 me-2"
                     href="{{ route('backend.evaluationForm.index') }}">返回列表</a>
             </div>
@@ -167,8 +167,12 @@
             }
         }
 
-        function createBtn() {
+        function updateBtn() {
+            url = "{{ route('backend.evaluationForm.update', ':id') }}";
+            url = url.replace(':id', '{{ $evaluationForm->id }}');
+
             const data = new FormData();
+            data.append('_method', 'PATCH');
 
             if ($("#name").val() != "") {
                 data.append("name", $("#name").val());
@@ -244,7 +248,7 @@
             if ($("#notes").val() != "") data.append("notes", $("#notes").val());
 
             $.ajax({
-                url: "{{ route('backend.evaluationForm.store') }}",
+                url: url,
                 type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": csrfToken
@@ -255,7 +259,7 @@
                 success: function(response) {
                     if (response.code == '00') {
                         Swal.fire({
-                            title: '新增成功！',
+                            title: '修改成功！',
                             icon: 'success',
                             timer: 3000
                         }).then((result) => {

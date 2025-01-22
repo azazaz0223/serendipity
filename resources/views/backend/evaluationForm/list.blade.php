@@ -193,52 +193,6 @@
     <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        function searchBtn() {
-            data = {};
-
-            if ($("#started_at").val() != "") data.started_at = $("#started_at").val();
-            if ($("#ended_at").val() != "") data.ended_at = $("#ended_at").val();
-            if ($("#status").val() != "") data.status = $("#status").val();
-            if ($("#name").val() != "") data.name = $("#name").val();
-            if ($("#email").val() != "") data.email = $("#email").val();
-            if ($("#phone").val() != "") data.phone = $("#phone").val();
-            if ($("#is_upload").val() != "") data.is_upload = $("#is_upload").val();
-            if ($("#question").val() != "") data.question = $("#question").val();
-
-            $.ajax({
-                url: "{{ route('backend.evaluationForm.index') }}",
-                type: "GET",
-                headers: {
-                    "X-CSRF-TOKEN": csrfToken
-                },
-                success: function(response) {
-                    if (response.code == '00') {
-                        Swal.fire({
-                            title: '刪除成功！',
-                            icon: 'success',
-                            timer: 3000
-                        }).then((result) => {
-                            location.reload();
-                        });
-                    }
-                },
-                error: function(xhr, status, error) {
-                    alert_text = JSON.parse(xhr.responseText).message;
-
-                    if (xhr.status == '403') {
-                        alert_text = "無此權限";
-                    }
-
-                    Swal.fire({
-                        icon: "error",
-                        title: alert_text,
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                }
-            });
-        }
-
         function editBtn(id) {
             url = "{{ route('backend.evaluationForm.show', ':id') }}";
             url = url.replace(':id', id);
