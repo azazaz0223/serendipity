@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Frontend\CreateContactRequest;
+use App\Services\Frontend\IndexSettingService;
 
 class IndexController extends Controller
 {
     public function __construct(
+        private IndexSettingService $indexSettingService,
     ) {
     }
 
@@ -16,9 +17,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-    }
-
-    public function storeContact(CreateContactRequest $request)
-    {
+        $indexSetting = $this->indexSettingService->findOne();
+        return view('frontend.index', compact('indexSetting'));
     }
 }

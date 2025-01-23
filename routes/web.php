@@ -17,7 +17,6 @@ use UniSharp\LaravelFilemanager\Lfm;
 
 // 前台路由
 Route::get('', [IndexController::class, 'index'])->name('frontend.index');
-Route::post('createContact', [IndexController::class, 'storeContact'])->name('frontend.createContact');
 
 // 後台路由
 Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {

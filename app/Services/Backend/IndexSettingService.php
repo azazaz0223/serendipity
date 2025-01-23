@@ -14,7 +14,7 @@ class IndexSettingService
 
     public function findOne()
     {
-        return $this->indexSettingRepository->findAll();
+        return $this->indexSettingRepository->findOne();
     }
 
     public function update($id, $request)

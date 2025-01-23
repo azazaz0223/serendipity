@@ -6,7 +6,7 @@ use App\Models\IndexSetting;
 
 class IndexSettingRepository
 {
-    public function findAll()
+    public function findOne()
     {
         return IndexSetting::find('1');
     }
