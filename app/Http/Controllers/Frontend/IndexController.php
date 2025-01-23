@@ -18,6 +18,6 @@ class IndexController extends Controller
     public function index()
     {
         $indexSetting = $this->indexSettingService->findOne();
-        return view('frontend.index', compact('indexSetting'));
+        return view('frontend.index.index', compact('indexSetting'));
     }
 }

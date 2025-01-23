@@ -1,6 +1,17 @@
-{{-- Favicon --}}
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="keywords" content="覓秘, 覓秘, 覓秘">
+<meta name="description" content="覓秘 最懂「你」的輕矯正 Serendipity">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="SERENDIPITY - serendipity">
+<meta property="og:site_name" content="serendipity">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ url('') }}">
+<meta property="og:description" content="覓秘 最懂「你」的輕矯正 Serendipity">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: dark)">
+<title>{{ env('FRONTEND_NAME') }}</title>
 
 {{-- Google Web Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +23,7 @@
 <link href="{{ asset('owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
 {{-- Bootstrap --}}
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ asset('css/frontend/bootstrap.min.css') }}" rel="stylesheet">
 
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
@@ -159,7 +170,7 @@
     }
 </style>
 
-<link rel='stylesheet' href='css/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/style.min.css') }}" type='text/css' media='all' />
 
 <style type='text/css'>
     .wp-block-button__link {
@@ -506,20 +517,20 @@
 </style>
 
 {{-- Layout Page Style --}}
-<link rel='stylesheet' href="css/chaty-front.min.css" type='text/css' media='all'>
-<link rel='stylesheet' href="css/main-style.css" type='text/css' media='all'>
-<link rel='stylesheet' href="css/animations.min.css" type='text/css' media='all'>
-<link rel='stylesheet' href="css/fontawesome.css" type='text/css' media='all'>
-<link rel='stylesheet' href="css/jplayer.blue.monday.min.css" type='text/css' media='all'>
-<link rel='stylesheet' href="css/responsive.css" type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/chaty-front.min.css') }}" type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/main-style.css') }} " type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/animations.min.css') }}" type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/fontawesome.css') }}" type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/jplayer.blue.monday.min.css') }}" type='text/css' media='all'>
+<link rel='stylesheet' href="{{ asset('css/frontend/responsive.css') }}" type='text/css' media='all'>
 
 <link rel='stylesheet'
     href='https://fonts.googleapis.com/css?family=Noto+Sans+TC%3A1%2C300%2C400%2C400italic%2C500%2C600%2C700%2C700italic%7CNoto+Serif+TC%3A1%2C300%2C400%2C400italic%2C500%2C600%2C700%2C700italic&#038;display=swap&#038;ver=6.7.1'
     type='text/css' media='all' />
-<link rel='stylesheet' href="css/dynamic-inline.css" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/dynamic-inline.css') }}" type='text/css' media='all' />
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-migrate.min.js') }}"></script>
 
 <script>
     function load() {
