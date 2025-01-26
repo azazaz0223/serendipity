@@ -31,6 +31,21 @@ class UploadImageService
         return "upload/{$folder}/" . $filename;
     }
 
+    public function uploadSvg($id, string $folder, $file)
+    {
+        $destinationPath = public_path("/upload/{$folder}");
+
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0777, true);
+        }
+
+        $filename = $id . '.svg';
+
+        $file->move($destinationPath, $filename);
+
+        return "upload/{$folder}/" . $filename;
+    }
+
     public function deleteImage($id, string $folder)
     {
         $fullPath = public_path("/upload/{$folder}/{$id}.*");

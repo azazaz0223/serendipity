@@ -1,13 +1,13 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-<link rel='stylesheet' href='css/sub-style1.css' type='text/css' media='all' />
-<link rel='stylesheet' href='css/article-style.css' type='text/css' media='all' />
-<link rel='stylesheet' href='css/map-style.css' type='text/css' media='all' />
-<link rel='stylesheet' href='css/sub-style2.css' type='text/css' media='all' />
-<link rel='stylesheet' href='css/assessment-style1.css' type='text/css' media='all' />
-<link rel='stylesheet' href='css/assessment-style2.css' type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/sub-style1.css') }}" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/article-style.css') }}" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/map-style.css') }}" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/sub-style2.css') }}" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/assessment-style1.css') }}" type='text/css' media='all' />
+<link rel='stylesheet' href="{{ asset('css/frontend/assessment-style2.css') }}" type='text/css' media='all' />
 
 
 <script type="text/javascript" id="chaty-front-end-js-extra">
@@ -144,9 +144,9 @@
 </script>
 
 
-<script type="text/javascript" src="js/cht-front-script.min.js"></script>
-<script type="text/javascript" src="js/hooks.min.js"></script>
-<script type="text/javascript" src="js/i18n.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/cht-front-script.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/hooks.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/i18n.min.js') }}"></script>
 
 <script type="text/javascript" id="wp-i18n-js-after">
     /* <![CDATA[ */
@@ -156,7 +156,7 @@
     /* ]]> */
 </script>
 
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
 
 <script type="text/javascript" id="contact-form-7-js-extra">
     /* <![CDATA[ */
@@ -200,18 +200,18 @@
     /* ]]> */
 </script>
 
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/core.min.js"></script>
-<script type="text/javascript" src="js/tabs.min.js"></script>
-<script type="text/javascript" src="js/debouncedresize.min.js"></script>
-<script type="text/javascript" src="js/magnificpopup.min.js"></script>
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="js/menu.js"></script>
-<script type="text/javascript" src="js/visible.min.js"></script>
-<script type="text/javascript" src="js/animations.min.js"></script>
-<script type="text/javascript" src="js/jplayer.min.js"></script>
-<script type="text/javascript" src="js/enllax.min.js"></script>
-<script type="text/javascript" src="js/translate3d.js"></script>
+<script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/core.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/tabs.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/debouncedresize.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/magnificpopup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/menu.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/visible.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/animations.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jplayer.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/enllax.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/translate3d.js') }}"></script>
 
 
 <script type="text/javascript" id="mfn-scripts-js-extra">
@@ -263,7 +263,7 @@
     /* ]]> */
 </script>
 
-<script type="text/javascript" src="js/scripts.js"></script>
-<script type="text/javascript" src="js/imagesloaded.min.js"></script>
-<script type="text/javascript" src="js/waypoints.min.js"></script>
-<script type="text/javascript" src="js/lottie-player.js"></script>
+<script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/imagesloaded.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/waypoints.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/lottie-player.js') }}"></script>

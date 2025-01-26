@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\SaveVideoRequest;
-use App\Services\Backend\VideoService;
+use App\Services\VideoService;
 
 class VideoController extends Controller
 {

@@ -10,6 +10,10 @@ class CarouselRepository
     {
         return Carousel::orderBy('sort', 'asc')->paginate(6);
     }
+    public function findAllForFrontend()
+    {
+        return Carousel::where('status', 1)->orderBy('sort', 'asc')->limit(10)->get();
+    }
 
     public function create($carousel)
     {

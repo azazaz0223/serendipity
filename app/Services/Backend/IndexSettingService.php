@@ -33,9 +33,10 @@ class IndexSettingService
                     $data["step_{$i}_description"] = $request["step_{$i}_description"];
                     $fileKey = "step_{$i}_button";
                     if ($request->hasFile($fileKey) && $request->file($fileKey)->isValid()) {
-                        $data[$fileKey] = $this->uploadImageService->uploadImage($fileKey, 'indexSetting', $request->file($fileKey));
+                        $data[$fileKey] = $this->uploadImageService->uploadSvg($fileKey, 'indexSetting', $request->file($fileKey));
                     }
                 }
+
                 break;
 
             case 'plan':

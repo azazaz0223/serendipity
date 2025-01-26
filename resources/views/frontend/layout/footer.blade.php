@@ -14,7 +14,8 @@
                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-37gsq4fav mcb-item-image-inner">
                                 <div class="image_frame image_item no_link scale-with-grid alignnone stretch no_border">
                                     <div class="image_wrapper ">
-                                        <img width="1960" height="166" src="images/footer_curve.png"
+                                        <img width="1960" height="166"
+                                            src="{{ asset('images/frontend/footer_curve.png') }}"
                                             class="scale-with-grid" alt="" decoding="async" loading="lazy"
                                             sizes="auto, (max-width:767px) 480px, (max-width:1960px) 100vw, 1960px" />
                                     </div>
@@ -38,8 +39,8 @@
                             class="column mcb-column mcb-item-87c80c40e one laptop-one tablet-one mobile-one column_footer_logo mfn-item-custom-width">
                             <div
                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-87c80c40e mcb-item-footer_logo-inner">
-                                <a class="logo-wrapper" href="index.php">
-                                    <img src="images/icon/logo2.svg" alt="logo2">
+                                <a class="logo-wrapper" href="{{ route('frontend.index') }}">
+                                    <img src="{{ asset('images/frontend/icon/logo2.svg') }}" alt="logo2">
                                 </a>
                             </div>
                         </div>
@@ -56,7 +57,8 @@
                                 <a href="https://lin.ee/Zs4v45a" target="_blank" title="">
                                     <div class="mfn-icon-box mfn-icon-box-left mfn-icon-box-center">
                                         <div class="icon-wrapper">
-                                            <img width="55" height="55" src="images/icon/social_line.png"
+                                            <img width="55" height="55"
+                                                src="{{ asset('images/frontend/icon/social_line.png') }}"
                                                 class="attachment-full size-full" alt="" decoding="async"
                                                 loading="lazy" />
                                         </div>

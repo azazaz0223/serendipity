@@ -8,7 +8,12 @@ class QuestionRepository
 {
     public function findAll()
     {
-        return Question::orderBy('sort', 'asc')->paginate(6);
+        return Question::orderBy('sort', 'asc')->paginate(8);
+    }
+
+    public function findAllForFrontend()
+    {
+        return Question::where('status', 1)->orderBy('sort', 'asc')->limit(8)->get();
     }
 
     public function create($request)

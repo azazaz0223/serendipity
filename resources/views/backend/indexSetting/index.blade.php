@@ -159,7 +159,7 @@
                                                 <div class="col">
                                                     <input type="file" class="form-control"
                                                         id="step_{{ $i }}_button" aria-describedby="inputFileAdd"
-                                                        aria-label="Upload">
+                                                        aria-label="Upload" accept=".svg">
                                                 </div>
                                             </div>
 

@@ -1,0 +1,168 @@
+.mcb-section .mcb-wrap .mcb-item-zg6ch3kfi .blog_wrapper .post-item {
+    background-color: #FFFFFF;
+}
+
+.mcb-section .mcb-wrap .mcb-item-zg6ch3kfi .blog_wrapper .post-item .post-desc {
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+}
+
+.mcb-section-33b4h2shl {
+    padding-top: 100px;
+    background-image: url(https://www.serendipitytaiwan.com/wp-content/uploads/2024/03/serendipity_S.svg#64);
+    background-position: -10% 100px;
+    background-size: 38vw;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.mcb-section-33b4h2shl .mcb-section-inner-33b4h2shl {
+    justify-content: center;
+}
+
+.mcb-section .mcb-wrap .mcb-item-urd9c35f .image_frame {
+    width: 25em;
+}
+
+.mcb-section .mcb-wrap .mcb-item-urd9c35f .mcb-column-inner-urd9c35f {
+    text-align: center;
+}
+
+.mcb-section .mcb-wrap .mcb-item-pkksdou1f .mcb-column-inner-pkksdou1f {
+    height: 20px;
+}
+
+.mcb-section .mcb-wrap .mcb-item-b4w6j9amv .title {
+    background-position: center center;
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: bold;
+}
+
+.mcb-section .mcb-wrap .mcb-item-2y4t9zcbb .mcb-column-inner-2y4t9zcbb {
+    height: 40px;
+}
+
+.mcb-section .mcb-wrap .mcb-item-mjr9axjtp .button {
+    padding-top: .8em;
+    padding-right: 1.5em;
+    padding-bottom: .8em;
+    padding-left: 1.5em;
+    font-size: 1.25em;
+}
+
+.mcb-section .mcb-wrap .mcb-item-mjr9axjtp {
+    text-align: center;
+}
+
+.mcb-section .mcb-wrap .mcb-item-mjr9axjtp .button:hover {
+    background: #b50609;
+}
+
+.mcb-section .mcb-wrap-nkalos6zr .mcb-wrap-inner-nkalos6zr {
+    margin-bottom: 0px;
+    align-items: center;
+}
+
+.mcb-section .mcb-wrap-nkalos6zr {
+    z-index: 10;
+}
+
+.mcb-section .mcb-wrap .mcb-item-jp49fjvfr {
+    z-index: -1;
+}
+
+.mcb-section .mcb-wrap .mcb-item-jp49fjvfr .image_frame {
+    width: 90%;
+}
+
+.mcb-section-5znfczz37 {
+    background-size: contain;
+    margin-bottom: -180px;
+    margin-top: -100px;
+    padding-top: 50px;
+    background-position: 90% 20px;
+}
+
+.mcb-section-5znfczz37 .mcb-section-inner-5znfczz37 {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+@media(max-width: 1440px) {
+    .mcb-section .mcb-wrap .mcb-item-zg6ch3kfi .blog_wrapper .post-item .post-desc {
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+    }
+
+    .mcb-section-5znfczz37 {
+        margin-bottom: -135px;
+    }
+}
+
+@media(max-width: 959px) {
+    .mcb-section .mcb-wrap .mcb-item-zg6ch3kfi .blog_wrapper .post-item .post-desc {
+        padding-top: 15px;
+        padding-right: 20px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-urd9c35f .image_frame {
+        width: 18em;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-pkksdou1f .mcb-column-inner-pkksdou1f {
+        height: 10px;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-b4w6j9amv .title {
+        font-size: 2.2em;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-2y4t9zcbb .mcb-column-inner-2y4t9zcbb {
+        height: 30px;
+    }
+}
+
+@media(max-width: 767px) {
+    .mcb-section-33b4h2shl {
+        padding-top: 0px;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-2y4t9zcbb .mcb-column-inner-2y4t9zcbb {
+        height: 20px;
+    }
+
+    .mcb-section .mcb-wrap-nkalos6zr .mcb-wrap-inner-nkalos6zr {
+        margin-bottom: 0px;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-jp49fjvfr .mcb-column-inner-jp49fjvfr {
+        text-align: center;
+    }
+
+    .mcb-section .mcb-wrap-dbk6ag1xf .mcb-wrap-inner-dbk6ag1xf {
+        align-content: center;
+        justify-content: center;
+    }
+
+    .mcb-section-5znfczz37 .mcb-section-inner-5znfczz37 {
+        align-content: flex-start;
+        justify-content: center;
+    }
+
+    .mcb-section-5znfczz37 {
+        height: 480px;
+        margin-bottom: -10px;
+        margin-top: 0px;
+        background-position: 0 150px;
+    }
+}

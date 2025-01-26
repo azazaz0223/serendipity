@@ -141,10 +141,10 @@
         }
 
         /*.iconbox .mcb-item-icon_box_2-inner{
-            align-content:center!important;
-            display:flex;
-            align-items:center;
-        }*/
+                align-content:center!important;
+                display:flex;
+                align-items:center;
+            }*/
 
         @media only screen and (max-width: 767px) {
             .track img {
@@ -220,7 +220,7 @@
 
         .quoteitem p:last-child::before {
             content: "";
-            background: url(images/icon/icon-quote.svg) no-repeat;
+            background: url({{ asset('images/frontend/icon/icon-quote.svg') }}) no-repeat;
             position: absolute;
             left: -1em;
             top: -1em;

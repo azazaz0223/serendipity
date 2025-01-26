@@ -22,7 +22,7 @@ class UpdateIndexSettingRequest extends BaseRequest
             $rules["step_{$i}_phase"] = 'nullable|string|max:20';
             $rules["step_{$i}_description"] = 'nullable|string|max:20';
             $rules["step_{$i}_price"] = 'nullable|integer|min:0';
-            $rules["step_{$i}_button"] = 'nullable|image|mimes:jpeg,png,jpg|max:10240';
+            $rules["step_{$i}_button"] = 'nullable|file|mimes:svg|max:10240';
         }
 
         $rules['subtitle_suitable_aligners'] = 'nullable|string|max:50';

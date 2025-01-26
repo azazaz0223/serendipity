@@ -11,6 +11,10 @@ class ShareExperienceRepository
     {
         return ShareExperience::orderBy('sort', 'asc')->paginate(6);
     }
+    public function findAllForFrontend()
+    {
+        return ShareExperience::where('status', 1)->orderBy('sort', 'asc')->limit(6)->get();
+    }
 
     public function create($shareExperience)
     {

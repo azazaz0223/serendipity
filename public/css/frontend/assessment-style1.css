@@ -1,0 +1,39 @@
+.mcb-section-zhe8f1x6t {
+  background-color: rgba(237, 80, 0, 0);
+}
+.mcb-section-ef63d3d54 {
+  background-color: #ed5000;
+  padding-top: 3vh;
+  padding-left: 0px;
+}
+.mcb-section-ef63d3d54 .mcb-section-inner-ef63d3d54 {
+  align-items: center;
+  align-content: center;
+}
+.mcb-section .mcb-wrap .mcb-item-da85cd70f .mcb-column-inner-da85cd70f {
+  text-align: center;
+}
+.mcb-section .mcb-wrap .mcb-item-da85cd70f .image_frame {
+  width: 32vw;
+}
+.mcb-section .mcb-wrap .mcb-item-6913c98a5 .column_attr {
+  text-align: center;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+.mcb-section .mcb-wrap .mcb-item-rqwtpouau .column_attr {
+  text-align: center;
+}
+.mcb-section .mcb-wrap .mcb-item-2150d3d97 .column_attr {
+  text-align: center;
+  font-size: 0.75em;
+  line-height: 1.5em;
+  font-family: Clarika Geometric Regular;
+}
+@media (max-width: 959px) {
+}
+@media (max-width: 767px) {
+  .mcb-section .mcb-wrap .mcb-item-da85cd70f .image_frame {
+    width: 55vw;
+  }
+}
