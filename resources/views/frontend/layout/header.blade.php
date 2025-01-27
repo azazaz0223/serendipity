@@ -29,10 +29,10 @@
                                 <ul id="menu-main" class="menu menu-main">
                                     <li id="menu-item-36"
                                         class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                            href="{{ route() }}"><span>案例分享</span></a></li>
+                                            href=""><span>案例分享</span></a></li>
                                     <li id="menu-item-35"
                                         class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                            href="map.php"><span>診所地圖</span></a></li>
+                                            href="{{ route('frontend.clinic.index') }}"><span>診所地圖</span></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -40,7 +40,8 @@
                     </div>
                     <div class="top_bar_right ">
                         <div class="top_bar_right_wrapper">
-                            <a href="index.php#price" class="button action_button top-bar-right-button ">認識療程方案</a>
+                            <a href="{{ route('frontend.index') }}#price"
+                                class="button action_button top-bar-right-button ">認識療程方案</a>
                         </div>
                     </div>
                 </div>

@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('district')->comment('行政區');
             $table->string('address')->comment('地址');
             $table->string('phone', 15)->nullable()->comment('電話');
+            $table->string('image')->nullable()->comment('圖片');
+            $table->string('url')->comment('診所 url');
             $table->string('line_id')->nullable()->comment('Line ID');
             $table->string('facebook')->nullable()->comment('Facebook 連結');
             $table->string('google_map')->nullable()->comment('Google Map 連結');

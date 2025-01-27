@@ -11,6 +11,12 @@ class ClinicRepository
         return Clinic::orderBy('sort', 'asc')->paginate(10);
     }
 
+    public function findAllForFrontend()
+    {
+        return Clinic::with('businessHours')->where('status', 1)->orderBy('sort', 'asc')->get();
+    }
+
+
     public function create($clinic, $business_hours)
     {
         try {
@@ -23,7 +29,7 @@ class ClinicRepository
                 ]);
             }
 
-            return true;
+            return $clinic;
         } catch (\Exception $e) {
             return $e;
         }
@@ -44,6 +50,17 @@ class ClinicRepository
 
         } catch (\Exception $e) {
             return false;
+        }
+    }
+
+    public function updateImage($id, $image)
+    {
+        try {
+            Clinic::where('id', $id)->update($image);
+
+            return true;
+        } catch (\Exception $e) {
+            return $e;
         }
     }
 

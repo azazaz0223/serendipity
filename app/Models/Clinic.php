@@ -15,6 +15,8 @@ class Clinic extends Model
         'district',
         'address',
         'phone',
+        'url',
+        'image',
         'line_id',
         'facebook',
         'google_map',

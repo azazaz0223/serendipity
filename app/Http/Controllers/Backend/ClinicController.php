@@ -7,11 +7,13 @@ use App\Http\Requests\Backend\CreateClinicRequest;
 use App\Http\Requests\Backend\UpdateClinicRequest;
 use App\Models\Clinic;
 use App\Services\Backend\ClinicService;
+use App\Services\Backend\UploadImageService;
 
 class ClinicController extends Controller
 {
     public function __construct(
         private ClinicService $clinicService,
+        private UploadImageService $uploadImageService,
     ) {
     }
 
@@ -29,7 +31,10 @@ class ClinicController extends Controller
      */
     public function store(CreateClinicRequest $request)
     {
-        $this->clinicService->create($request->all());
+        $clinic = $this->clinicService->create($request->all());
+
+        $image_url = $this->uploadImageService->uploadImage($clinic->id, 'clinic', $request->file('image'));
+        $this->clinicService->updateImage($clinic->id, $image_url);
 
         return $this->successResponse(null, 200);
     }
@@ -50,6 +55,10 @@ class ClinicController extends Controller
     public function update(UpdateClinicRequest $request, Clinic $clinic)
     {
         $this->clinicService->update($clinic, $request->all());
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $this->uploadImageService->uploadImage($clinic->id, 'clinic', $request->file('image'));
+        }
 
         return $this->successResponse(null, 200);
     }

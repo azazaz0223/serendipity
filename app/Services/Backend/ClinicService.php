@@ -24,6 +24,7 @@ class ClinicService
             'district' => $request['district'],
             'address' => $request['address'],
             'phone' => $request['phone'],
+            'url' => $request['url'],
             'line_id' => $request['line_id'],
             'facebook' => $request['facebook'],
             'google_map' => $request['google_map'],
@@ -34,6 +35,15 @@ class ClinicService
         $business_hours = $request['business_hours'];
 
         return $this->clinicRepository->create($clinic, $business_hours);
+    }
+
+    public function updateImage($id, $image)
+    {
+        $data = [
+            'image' => $image
+        ];
+
+        return $this->clinicRepository->updateImage($id, $data);
     }
 
     public function update($clinic, $request)

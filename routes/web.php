@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ShareExperienceController;
 use App\Http\Controllers\Backend\StaffController;
+use App\Http\Controllers\Frontend\ClinicController as FrontendClinicController;
 use App\Http\Middleware\BackendAuthenticated;
 use UniSharp\LaravelFilemanager\Lfm;
 
 // 前台路由
 Route::get('', [IndexController::class, 'index'])->name('frontend.index');
+Route::get('clinic', [FrontendClinicController::class, 'index'])->name('frontend.clinic.index');
 
 // 後台路由
 Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {

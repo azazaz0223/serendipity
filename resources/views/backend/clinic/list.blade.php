@@ -97,6 +97,10 @@
                             <input type="text" class="form-control" id="phone">
                         </div>
                         <div class="mb-3">
+                            <label for="phone" class="form-label">連結</label>
+                            <input type="text" class="form-control" id="url">
+                        </div>
+                        <div class="mb-3">
                             <label for="line_id" class="form-label">LINE@</label>
                             <input type="text" class="form-control" id="line_id">
                         </div>
@@ -153,6 +157,12 @@
                             <label for="sort" class="form-label">排序</label>
                             <input type="number" class="form-control" id="sort" min="0">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">上傳圖片(只接受jpg、png)</label>
+                            <input type="file" id="image" class="form-control easein"
+                                accept="image/jpeg, image/png" onchange="reviewImage(this)">
+                            <img id="preview_image" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" onclick="clearBtn()">清除</button>
@@ -173,51 +183,70 @@
             elDistrict: '#district'
         });
 
+        let selectedFile = null;
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        function reviewImage(element) {
+            if (element.files && element.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#preview_image").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(element.files[0]);
+                selectedFile = element.files[0];
+            } else {
+                selectedFile = null;
+            }
+        }
 
         function clearBtn() {
             $("#modal input, #modal select").val('');
+            $("#preview_image").attr("src", "{{ asset('images/backend/defaultImage.png') }}");
         }
 
         function handleData() {
-            const data = {};
-            data.name = $("#name").val();
-            data.county = $("#county").val();
-            data.district = $("#district").val();
-            data.address = $("#address").val();
-            data.phone = $("#phone").val();
-            data.line_id = $("#line_id").val();
-            data.facebook = $("#facebook").val();
-            data.google_map = $("#google_map").val();
-            data.status = $("#status").val();
-            data.sort = $("#sort").val() != "" ? $("#sort").val() : 1;
-            data.business_hours = [];
+            const formData = new FormData();
+
+            formData.append("name", $("#name").val());
+            formData.append("county", $("#county").val());
+            formData.append("district", $("#district").val());
+            formData.append("address", $("#address").val());
+            formData.append("phone", $("#phone").val());
+            formData.append("url", $("#url").val());
+            formData.append("line_id", $("#line_id").val());
+            formData.append("facebook", $("#facebook").val());
+            formData.append("google_map", $("#google_map").val());
+            formData.append("status", $("#status").val());
+            formData.append("sort", $("#sort").val() !== "" ? $("#sort").val() : 1);
+
+            // 處理圖片檔案
+            if (selectedFile != null) {
+                formData.append("image", selectedFile);
+            }
 
             $('[name^="business_hours"]').each(function() {
                 let name = $(this).attr('name');
-
-                // 用正則表達式解析 name，提取索引和字段
                 let match = name.match(/business_hours\[(\d+)\]\[(\w+)\]/);
 
                 if (match) {
-                    let index = match[1]; // 例如: 0, 1, 2
-                    let key = match[2]; // 例如: day, time
+                    let index = match[1];
+                    let key = match[2];
+                    const value = $(this).val();
 
-                    // 初始化對應的索引物件
-                    if (!data.business_hours[index]) {
-                        data.business_hours[index] = {};
+                    // 過濾空值
+                    if (key === 'day' && value.trim() === '') {
+                        return;
+                    }
+                    if (key === 'time' && value.trim() === '') {
+                        return;
                     }
 
-                    // 設定對應的值
-                    data.business_hours[index][key] = $(this).val();
+                    // 加入非空的項目
+                    formData.append(`business_hours[${index}][${key}]`, value);
                 }
             });
 
-            data.business_hours = data.business_hours.filter(item => {
-                return item.day?.trim() || item.time?.trim();
-            });
-
-            return data;
+            return formData;
         }
 
         function createBtn() {
@@ -237,6 +266,8 @@
                     "X-CSRF-TOKEN": csrfToken
                 },
                 data: data,
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     if (response.code == '00') {
                         Swal.fire({
@@ -286,6 +317,10 @@
                         $("#district").val(response.data.district).change();
                         $("#address").val(response.data.address);
                         $("#phone").val(response.data.phone);
+                        $("#url").val(response.data.url);
+                        let basePath = "{{ asset('') }}";
+                        let image = response.data.image;
+                        $("#preview_image").attr("src", `${basePath}${image}`);
                         $("#line_id").val(response.data.line_id);
                         $("#facebook").val(response.data.facebook);
                         $("#google_map").val(response.data.google_map);
@@ -321,14 +356,17 @@
             url = url.replace(':id', id);
 
             data = handleData();
+            data.append('_method', 'PATCH');
 
             $.ajax({
                 url: url,
-                type: "PATCH",
+                type: "POST",
                 headers: {
                     "X-CSRF-TOKEN": csrfToken
                 },
                 data: data,
+                processData: false,
+                contentType: false,
                 success: function(response) {
                     if (response.code == '00') {
                         Swal.fire({

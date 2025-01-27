@@ -1030,4 +1030,3 @@
         @include('frontend.layout.jsStyle')
     </body>
 @endsection
-{{-- {{ Request::path() }}; --}}
