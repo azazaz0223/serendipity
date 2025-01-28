@@ -1,6 +1,6 @@
 @extends('frontend.layout.layout')
 
-@include('frontend.clinic.custom')
+@include('frontend.caseShare.custom')
 
 @section('body')
 
@@ -76,7 +76,7 @@
                                                                                         href="{{ route('frontend.caseShare.detail', $caseShare->id) }}">
                                                                                         <div class="mask"></div>
                                                                                         <img width="960" height="750"
-                                                                                            src="{{ asset('images/frontend/pexels-kateryna-tsurik.jpg') }}"
+                                                                                            src="{{ asset($caseShare->image) }}"
                                                                                             class="scale-with-grid wp-post-image"
                                                                                             decoding="async"
                                                                                             sizes="(max-width:767px) 480px, (max-width:960px) 100vw, 960px" />
@@ -86,7 +86,7 @@
                                                                                             data-tooltip="Zoom"
                                                                                             data-position="left"
                                                                                             rel="prettyphoto"
-                                                                                            href="images/article/pexels-kateryna-tsurik-505461005-24461006-scaled-e1722319209148-834x1024.jpg">
+                                                                                            href="{{ asset($caseShare->image) }}">
                                                                                             <svg viewBox="0 0 26 26">
                                                                                                 <defs>
                                                                                                     <style>
@@ -359,7 +359,7 @@
                                             href="${detailUrl}">
                                             <div class="mask"></div>
                                             <img width="960" height="750"
-                                                src="{{ asset('images/frontend/pexels-kateryna-tsurik.jpg') }}"
+                                                src="{{ asset('') }}${caseShare.image}"
                                                 class="scale-with-grid wp-post-image"
                                                 decoding="async"
                                                 sizes="(max-width:767px) 480px, (max-width:960px) 100vw, 960px" />
@@ -369,7 +369,7 @@
                                                 data-tooltip="Zoom"
                                                 data-position="left"
                                                 rel="prettyphoto"
-                                                href="images/article/pexels-kateryna-tsurik-505461005-24461006-scaled-e1722319209148-834x1024.jpg">
+                                                href="{{ asset('') }}${caseShare.image}g">
                                                 <svg viewBox="0 0 26 26">
                                                     <defs>
                                                         <style>

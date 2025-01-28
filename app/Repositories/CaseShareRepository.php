@@ -28,7 +28,7 @@ class CaseShareRepository
 
     public function findAllForFrontend()
     {
-        return CaseShare::where('status', 1)->orderBy('sort', 'asc')->limit(1)->get();
+        return CaseShare::where('status', 1)->orderBy('sort', 'asc')->limit(5)->get();
     }
 
     public function findMoreForFrontend($page, $perPage)

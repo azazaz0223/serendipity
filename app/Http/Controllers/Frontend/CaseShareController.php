@@ -29,8 +29,13 @@ class CaseShareController extends Controller
         return $this->successResponse($data, 200);
     }
 
+
+    /**
+     * Display the specified resource.
+     */
     public function show(CaseShare $caseShare)
     {
+        $caseShare->increment('views');
         return view('frontend.caseShare.detail', compact('caseShare'));
     }
 }

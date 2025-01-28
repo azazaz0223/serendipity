@@ -23,7 +23,7 @@ Route::get('clinic', [FrontendClinicController::class, 'index'])->name('frontend
 Route::group(['namespace' => 'CashShare', 'prefix' => 'cashShare'], function () {
     Route::get('', [FrontendCaseShareController::class, 'index'])->name('frontend.cashShare.index');
     Route::get('more', [FrontendCaseShareController::class, 'more'])->name('frontend.caseShare.more');
-    Route::get('{cashShare}', [FrontendCaseShareController::class, 'show'])->name('frontend.caseShare.detail');
+    Route::get('{caseShare}', [FrontendCaseShareController::class, 'show'])->name('frontend.caseShare.detail');
 });
 
 // 後台路由
