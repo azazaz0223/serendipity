@@ -26,6 +26,20 @@ class CaseShareRepository
         return $query->orderByDesc('created_at')->paginate(10);
     }
 
+    public function findAllForFrontend()
+    {
+        return CaseShare::where('status', 1)->orderBy('sort', 'asc')->limit(1)->get();
+    }
+
+    public function findMoreForFrontend($page, $perPage)
+    {
+        return CaseShare::where('status', 1)
+            ->orderBy('sort', 'asc')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+    }
+
     public function create($caseShare)
     {
         try {

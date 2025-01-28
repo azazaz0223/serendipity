@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ShareExperienceController;
 use App\Http\Controllers\Backend\StaffController;
+use App\Http\Controllers\Frontend\CaseShareController as FrontendCaseShareController;
 use App\Http\Controllers\Frontend\ClinicController as FrontendClinicController;
 use App\Http\Middleware\BackendAuthenticated;
 use UniSharp\LaravelFilemanager\Lfm;
@@ -19,6 +20,11 @@ use UniSharp\LaravelFilemanager\Lfm;
 // 前台路由
 Route::get('', [IndexController::class, 'index'])->name('frontend.index');
 Route::get('clinic', [FrontendClinicController::class, 'index'])->name('frontend.clinic.index');
+Route::group(['namespace' => 'CashShare', 'prefix' => 'cashShare'], function () {
+    Route::get('', [FrontendCaseShareController::class, 'index'])->name('frontend.cashShare.index');
+    Route::get('more', [FrontendCaseShareController::class, 'more'])->name('frontend.caseShare.more');
+    Route::get('{cashShare}', [FrontendCaseShareController::class, 'show'])->name('frontend.caseShare.detail');
+});
 
 // 後台路由
 Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {

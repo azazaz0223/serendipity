@@ -29,7 +29,7 @@
                                 <ul id="menu-main" class="menu menu-main">
                                     <li id="menu-item-36"
                                         class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                            href=""><span>案例分享</span></a></li>
+                                            href="{{ route('frontend.cashShare.index') }}"><span>案例分享</span></a></li>
                                     <li id="menu-item-35"
                                         class="menu-item menu-item-type-post_type menu-item-object-page"><a
                                             href="{{ route('frontend.clinic.index') }}"><span>診所地圖</span></a></li>

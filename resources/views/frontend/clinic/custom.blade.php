@@ -133,17 +133,17 @@
         }
 
         .clinic .dental li:first-child::before {
-            background: url("https://www.serendipitytaiwan.com/wp-content/uploads/2024/03/clinic-address.svg") no-repeat;
+            background: url("{{ asset('images/frontend/icon/clinic-address.svg') }}") no-repeat;
             background-size: contain;
         }
 
         .clinic .dental li:nth-child(2)::before {
-            background: url("https://www.serendipitytaiwan.com/wp-content/uploads/2024/03/clinic-phone.svg") no-repeat;
+            background: url("{{ asset('images/frontend/icon/clinic-phone.svg') }") no-repeat;
             background-size: contain;
         }
 
         .clinic .dental li:last-child::before {
-            background: url("https://www.serendipitytaiwan.com/wp-content/uploads/2024/03/clinic-time.svg") no-repeat;
+            background: url("{{ asset('images/frontend/icon/clinic-time.svg') }") no-repeat;
             background-size: contain;
         }
 

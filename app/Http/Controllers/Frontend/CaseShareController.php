@@ -3,20 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Services\Frontend\CarouselService;
-use App\Services\Frontend\IndexSettingService;
-use App\Services\Frontend\QuestionService;
-use App\Services\Frontend\ShareExperienceService;
-use App\Services\VideoService;
+use App\Http\Requests\Frontend\FindMoreCaseShareRequest;
+use App\Models\CaseShare;
+use App\Services\Frontend\CaseShareService;
 
 class CaseShareController extends Controller
 {
     public function __construct(
-        private IndexSettingService $indexSettingService,
-        private VideoService $videoService,
-        private CarouselService $carouselService,
-        private ShareExperienceService $shareExperienceService,
-        private QuestionService $questionService,
+        private CaseShareService $caseShareService,
     ) {
     }
 
@@ -25,11 +19,18 @@ class CaseShareController extends Controller
      */
     public function index()
     {
-        $indexSetting = $this->indexSettingService->findOne();
-        $videos = $this->videoService->findVideo();
-        $carousels = $this->carouselService->findAll();
-        $share_experiences = $this->shareExperienceService->findAll()->chunk(2);
-        $questions = $this->questionService->findAll();
-        return view('frontend.index.index', compact('indexSetting', 'videos', 'carousels', 'questions', 'share_experiences'));
+        $caseShares = $this->caseShareService->findAll();
+        return view('frontend.caseShare.index', compact('caseShares'));
+    }
+
+    public function more(FindMoreCaseShareRequest $request)
+    {
+        $data = $this->caseShareService->findMore($request['page']);
+        return $this->successResponse($data, 200);
+    }
+
+    public function show(CaseShare $caseShare)
+    {
+        return view('frontend.caseShare.detail', compact('caseShare'));
     }
 }
