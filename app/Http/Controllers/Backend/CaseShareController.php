@@ -38,7 +38,7 @@ class CaseShareController extends Controller
      */
     public function store(CreateCaseShareRequest $request)
     {
-        $this->caseShareService->create($request->all());
+        $this->caseShareService->create($request);
 
         return $this->successResponse(null, 200);
     }
@@ -56,7 +56,7 @@ class CaseShareController extends Controller
      */
     public function update(UpdateCaseShareRequest $request, CaseShare $caseShare)
     {
-        $this->caseShareService->update($caseShare->id, $request->all());
+        $this->caseShareService->update($caseShare, $request);
 
         return $this->successResponse(null, 200);
     }

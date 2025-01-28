@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string('title')->comment('標題');
             $table->string('publisher')->comment('發布者');
             $table->string('summary')->nullable()->comment('摘要');
+            $table->string('image')->nullable()->comment('圖片');
+            $table->unsignedBigInteger('views')->default(0)->comment('瀏覽次數');
             $table->integer('sort')->default(0)->comment('排序');
             $table->boolean('status')->default(0)->comment('狀態');
             $table->text('content')->comment('內容');

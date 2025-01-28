@@ -28,10 +28,13 @@ class CaseShareService
             'content' => $request['content'],
         ];
 
-        return $this->caseShareRepository->create($data);
+        $caseShare = $this->caseShareRepository->create($data);
+
+        $image_url = $this->uploadImageService->uploadImage($caseShare->id, 'caseShare', $request->file('image'));
+        return $this->caseShareRepository->update($caseShare->id, ["image" => $image_url]);
     }
 
-    public function update($id, $request)
+    public function update($caseShare, $request)
     {
         $data = [
             'title' => $request['title'],
@@ -42,7 +45,12 @@ class CaseShareService
             'content' => $request['content'],
         ];
 
-        return $this->caseShareRepository->update($id, $data);
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $this->uploadImageService->uploadImage($caseShare->id, 'caseShare', $request->file('image'));
+        }
+
+        return $this->caseShareRepository->update($caseShare->id, $data);
     }
 
     public function delete($id)

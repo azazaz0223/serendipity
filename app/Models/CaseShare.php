@@ -13,6 +13,8 @@ class CaseShare extends Model
         'title',
         'publisher',
         'summary',
+        'image',
+        'views',
         'sort',
         'status',
         'content',
