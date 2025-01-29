@@ -11,13 +11,13 @@ class CaseShareService
     ) {
     }
 
-    public function findAll()
+    public function findAll($filter)
     {
-        return $this->caseShareRepository->findAllForFrontend();
+        return $this->caseShareRepository->findAllForFrontend($filter);
     }
 
-    public function findMore($page)
+    public function findMore($page, $filter)
     {
-        return $this->caseShareRepository->findMoreForFrontend($page, 10);
+        return $this->caseShareRepository->findMoreForFrontend($page, 10, $filter);
     }
 }

@@ -42,13 +42,13 @@
 
                                                                     <div class="filters_wrapper">
                                                                         <ul class="categories">
-                                                                            <li class="reset current-cat">
-                                                                                <a class="all" data-rel="*"
-                                                                                    href="#">最新排序</a>
+                                                                            <li class="">
+                                                                                <a class="all"
+                                                                                    href="{{ route('frontend.cashShare.index', ['filter' => 'latest']) }}">最新排序</a>
                                                                             </li>
-                                                                            <li class="share">
-                                                                                <a data-rel=".category-share"
-                                                                                    href="#">熱門程度</a>
+                                                                            <li class="">
+                                                                                <a
+                                                                                    href="{{ route('frontend.cashShare.index', ['filter' => 'popular']) }}">熱門程度</a>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
@@ -293,10 +293,7 @@
                                         </div>
                                     </div>
                                 </section>
-
                             </div>
-
-
                         </div>
                     </main>
                 </div>
@@ -314,7 +311,8 @@
                     url: "{{ route('frontend.caseShare.more') }}",
                     method: 'GET',
                     data: {
-                        page: page
+                        page: page,
+                        filter: "{{ request('filter') == 'popular' ? 'popular' : 'latest' }}",
                     },
                     success: function(response) {
                         resolve(response.data);

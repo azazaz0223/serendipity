@@ -26,16 +26,30 @@ class CaseShareRepository
         return $query->orderByDesc('created_at')->paginate(10);
     }
 
-    public function findAllForFrontend()
+    public function findAllForFrontend($filter)
     {
-        return CaseShare::where('status', 1)->orderBy('sort', 'asc')->limit(5)->get();
+        $query = CaseShare::query()->where('status', 1);
+
+        if ($filter == 'latest') {
+            $query->orderBy('sort', 'asc');
+        } else {
+            $query->orderBy('views', 'desc');
+        }
+
+        return $query->limit(5)->get();
     }
 
-    public function findMoreForFrontend($page, $perPage)
+    public function findMoreForFrontend($page, $perPage, $filter)
     {
-        return CaseShare::where('status', 1)
-            ->orderBy('sort', 'asc')
-            ->skip(($page - 1) * $perPage)
+        $query = CaseShare::query()->where('status', 1);
+
+        if ($filter == 'latest') {
+            $query->orderBy('sort', 'asc');
+        } else {
+            $query->orderBy('views', 'desc');
+        }
+
+        return $query->skip(($page - 1) * $perPage)
             ->take($perPage)
             ->get();
     }
