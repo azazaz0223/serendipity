@@ -45,7 +45,7 @@ class EvaluationFormService
                 $filePath = $uploadPath . '/' . $fileName;
                 file_put_contents($filePath, $image);
 
-                $data[$key] = $fileName;
+                $data[$key] = $filePath;
             }
         }
 
