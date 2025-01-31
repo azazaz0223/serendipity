@@ -94,7 +94,8 @@
                                                     class="column mcb-column mcb-item-qevk069j one laptop-one tablet-one mobile-one column_button">
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-qevk069j mcb-item-button-inner">
-                                                        <a class="button  button_right button_size_4" href="assessment.php">
+                                                        <a class="button  button_right button_size_4"
+                                                            href="{{ route('frontend.evaluationForm.index') }}">
                                                             <span class="button_icon">
                                                                 <i class="icon-right-dir" aria-hidden="true"></i>
                                                             </span>

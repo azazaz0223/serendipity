@@ -14,17 +14,31 @@ use App\Http\Controllers\Backend\ShareExperienceController;
 use App\Http\Controllers\Backend\StaffController;
 use App\Http\Controllers\Frontend\CaseShareController as FrontendCaseShareController;
 use App\Http\Controllers\Frontend\ClinicController as FrontendClinicController;
+use App\Http\Controllers\Frontend\EvaluationFormController as FrontendEvaluationFormController;
 use App\Http\Middleware\BackendAuthenticated;
 use UniSharp\LaravelFilemanager\Lfm;
 
 // 前台路由
+// 首頁
 Route::get('', [IndexController::class, 'index'])->name('frontend.index');
+// 診所地圖
 Route::get('clinic', [FrontendClinicController::class, 'index'])->name('frontend.clinic.index');
+// 案例分享
 Route::group(['namespace' => 'CashShare', 'prefix' => 'cashShare'], function () {
     Route::get('', [FrontendCaseShareController::class, 'index'])->name('frontend.cashShare.index');
     Route::get('more', [FrontendCaseShareController::class, 'more'])->name('frontend.caseShare.more');
     Route::get('{caseShare}', [FrontendCaseShareController::class, 'show'])->name('frontend.caseShare.detail');
 });
+// 評估單
+Route::group(['namespace' => 'EvaluationForm', 'prefix' => 'evaluationForm'], function () {
+    Route::get('', [FrontendEvaluationFormController::class, 'index'])->name('frontend.evaluationForm.index');
+    Route::get('variety', [FrontendEvaluationFormController::class, 'variety'])->name('frontend.evaluationForm.variety');
+    Route::post('api', [FrontendEvaluationFormController::class, 'store'])->name('frontend.evaluationForm.store');
+    Route::get('{evaluationForm}', [FrontendEvaluationFormController::class, 'show'])->name('frontend.evaluationForm.detail');
+    Route::get('camera/{evaluationForm}', [FrontendEvaluationFormController::class, 'camera'])->name('frontend.evaluationForm.camera');
+    Route::patch('api/{evaluationForm}', [FrontendEvaluationFormController::class, 'update'])->name('frontend.evaluationForm.update');
+});
+
 
 // 後台路由
 Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {

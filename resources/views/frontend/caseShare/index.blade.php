@@ -257,7 +257,7 @@
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-mjr9axjtp mcb-item-button-inner">
                                                         <a class="button  button_right button_size_4"
-                                                            href="assessment.php">
+                                                            href="{{ route('frontend.evaluationForm.index') }}">
                                                             <span class="button_icon">
                                                                 <i class="icon-right-dir" aria-hidden="true"></i>
                                                             </span>

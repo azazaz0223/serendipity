@@ -5,7 +5,7 @@
         <a href="#" aria-label="menu close icon" class="close"><i class="icon-cancel-fine"></i></a>
     </div>
     <div class="extras">
-        <a href="index.php#price" class="button action_button">認識療程方案</a>
+        <a href="{{ route('frontend.index') }}#price" class="button action_button">認識療程方案</a>
         <div class="extras-wrapper" role="navigation" aria-label="extras menu"></div>
     </div>
     <div class="lang-wrapper" role="navigation" aria-label="language menu"></div>

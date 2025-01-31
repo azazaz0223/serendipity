@@ -453,7 +453,8 @@
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-4c756230c mcb-item-button-inner">
                                                         <a class="button  button_right button_size_4"
-                                                            href="assessment.php" title="">
+                                                            href="{{ route('frontend.evaluationForm.index') }}"
+                                                            title="">
                                                             <span class="button_icon"><i class="icon-right-dir text-dark"
                                                                     aria-hidden="true"></i></span>
                                                             <span class="button_label">立即免費線上評估 </span>
@@ -554,7 +555,8 @@
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-377037750 mcb-item-button-inner">
                                                         <a class="button  button_right button_size_4"
-                                                            href="assessment.php" title="">
+                                                            href="{{ route('frontend.evaluationForm.index') }}"
+                                                            title="">
                                                             <span class="button_icon"><i class="icon-right-dir"
                                                                     aria-hidden="true"></i></span>
                                                             <span class="button_label">立即免費線上評估 </span>
@@ -677,7 +679,8 @@
                                                             <div
                                                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-9493863a9 mcb-item-button-inner">
                                                                 <a class="button button_right button_full_width button_size_2"
-                                                                    href="assessment.php" title="">
+                                                                    href="{{ route('frontend.evaluationForm.index') }}"
+                                                                    title="">
                                                                     <span class="button_icon"><i class="icon-right-dir"
                                                                             aria-hidden="true"></i></span>
                                                                     <span class="button_label">立即免費線上評估 </span>
@@ -758,7 +761,8 @@
                                                             <div
                                                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-7931d2534 mcb-item-button-inner">
                                                                 <a class="button button_right button_full_width button_size_2"
-                                                                    href="assessment.php" title="">
+                                                                    href="{{ route('frontend.evaluationForm.index') }}"
+                                                                    title="">
                                                                     <span class="button_icon"><i class="icon-right-dir"
                                                                             aria-hidden="true"></i></span>
                                                                     <span class="button_label">立即免費線上評估 </span>
@@ -1008,7 +1012,8 @@
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-b2qad07y mcb-item-button-inner">
                                                         <a class="button  button_right button_size_4"
-                                                            href="assessment.php" title="">
+                                                            href="{{ route('frontend.evaluationForm.index') }}"
+                                                            title="">
                                                             <span class="button_icon"><i class="icon-right-dir"
                                                                     aria-hidden="true"></i></span>
                                                             <span class="button_label">立即免費線上評估 </span>

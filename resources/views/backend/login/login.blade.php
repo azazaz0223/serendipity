@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/backend/login.css') }}">
-    <script src="{{ asset('js/bootstrap.bundle.min.js')}}"
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
 </head>
@@ -30,11 +30,11 @@
                 </div>
 
                 @if (session('error'))
-                <div class="alert alert-danger py-2 my-2">
-                    <ul>
-                        <li>{{ session('error') }}</li>
-                    </ul>
-                </div>
+                    <div class="alert alert-danger py-2 my-2">
+                        <ul>
+                            <li>{{ session('error') }}</li>
+                        </ul>
+                    </div>
                 @endif
                 <button type="submit" class="loginBtn">登入</button>
             </form>
