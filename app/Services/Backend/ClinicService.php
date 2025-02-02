@@ -54,6 +54,7 @@ class ClinicService
             'district' => $request['district'],
             'address' => $request['address'],
             'phone' => $request['phone'],
+            'url' => $request['url'],
             'line_id' => $request['line_id'],
             'facebook' => $request['facebook'],
             'google_map' => $request['google_map'],
