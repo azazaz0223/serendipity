@@ -711,45 +711,25 @@
                                                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-f96aa8398 mcb-item-spacer-inner">
                                                             </div>
                                                         </div>
-                                                        <div
-                                                            class="column mcb-column mcb-item-b2b71ec0a one-third laptop-one-third tablet-one-third mobile-one-third column_column mfn-icon-box mfn-icon-box-box-scale">
+                                                        @for ($i = 1; $i <= 3; $i++)
                                                             <div
-                                                                class="mcb-column-inner mfn-module-wrapper mcb-column-inner-b2b71ec0a mcb-item-column-inner">
-                                                                <div class="column_attr mfn-inline-editor clearfix">
-                                                                    <p class="course">Clear</p>
-                                                                    <p><span
-                                                                            style="font-size: 1.5em; font-weight: bold;">＄6,000</span>/月
-                                                                    </p>
-                                                                    <p>12個月零利率</p>
+                                                                class="column mcb-column mcb-item-b2b71ec0a one-third laptop-one-third tablet-one-third mobile-one-third column_column mfn-icon-box mfn-icon-box-box-scale">
+                                                                <div
+                                                                    class="mcb-column-inner mfn-module-wrapper mcb-column-inner-b2b71ec0a mcb-item-column-inner">
+                                                                    <div class="column_attr mfn-inline-editor clearfix">
+                                                                        <p class="course">
+                                                                            {{ $indexSetting["payment_{$i}_name"] }}
+                                                                        </p>
+                                                                        <p>
+                                                                            <span
+                                                                                style="font-size: 1.5em; font-weight: bold;">{{ $indexSetting["payment_{$i}_price"] }}</span>
+                                                                        </p>
+                                                                        <p>{{ $indexSetting["payment_{$i}_description"] }}
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div
-                                                            class="column mcb-column mcb-item-77936d781 one-third laptop-one-third tablet-one-third mobile-one-third column_column mfn-icon-box mfn-icon-box-box-scale">
-                                                            <div
-                                                                class="mcb-column-inner mfn-module-wrapper mcb-column-inner-77936d781 mcb-item-column-inner">
-                                                                <div class="column_attr mfn-inline-editor clearfix">
-                                                                    <p class="course">Plus</p>
-                                                                    <p><span
-                                                                            style="font-size: 1.5em; font-weight: bold;">＄10,000</span>/月
-                                                                    </p>
-                                                                    <p>12個月零利率</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="column mcb-column mcb-item-9728db8a6 one-third laptop-one-third tablet-one-third mobile-one-third column_column mfn-icon-box mfn-icon-box-box-scale">
-                                                            <div
-                                                                class="mcb-column-inner mfn-module-wrapper mcb-column-inner-9728db8a6 mcb-item-column-inner">
-                                                                <div class="column_attr mfn-inline-editor clearfix">
-                                                                    <p class="course">Extra</p>
-                                                                    <p><span
-                                                                            style="font-size: 1.5em; font-weight: bold;">＄12,000</span>/月
-                                                                    </p>
-                                                                    <p>12個月零利率</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @endfor
                                                         <div
                                                             class="column mcb-column mcb-item-7ae5d51cf one laptop-one tablet-one mobile-one column_spacer">
                                                             <div
