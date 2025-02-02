@@ -13,7 +13,7 @@ class QuestionRepository
 
     public function findAllForFrontend()
     {
-        return Question::where('status', 1)->orderBy('sort', 'asc')->limit(8)->get();
+        return Question::where('status', 1)->orderBy('sort', 'asc')->get();
     }
 
     public function create($request)
