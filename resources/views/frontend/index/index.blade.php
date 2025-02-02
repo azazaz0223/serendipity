@@ -664,7 +664,7 @@
                                                             <div
                                                                 class="mcb-column-inner mfn-module-wrapper mcb-column-inner-1185c2277 mcb-item-column-inner">
                                                                 <div class="column_attr mfn-inline-editor clearfix">
-                                                                    {{ $indexSetting->payment_full_amount }}
+                                                                    {!! nl2br(e($indexSetting->payment_full_amount)) !!}
                                                                 </div>
                                                             </div>
                                                         </div>

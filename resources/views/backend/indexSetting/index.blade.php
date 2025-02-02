@@ -295,13 +295,15 @@
                         <div class="dive_sub">一次付清</div>
                     </div>
                     <div class="col">
-                        <input type="text" id="payment_full_amount" class="form-control"
-                            value="{{ $indexSetting->payment_full_amount }}">
+                        <textarea id="payment_full_amount" class="form-control search_input easein mb-0" rows="2">{{ $indexSetting->payment_full_amount }}</textarea>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-start gap-3 mb-3">
                     <div class="abgne_tab">
+                        <div class="w-auto col-1">
+                            <div class="dive_sub">分期付款</div>
+                        </div>
                         <ul class="tabs d-flex">
                             <li class="active"><a href="#tab_3-1">方案1</a></li>
                             <li class=""><a href="#tab_3-2">方案2</a></li>
