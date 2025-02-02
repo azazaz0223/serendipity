@@ -21,7 +21,7 @@ class UpdateIndexSettingRequest extends BaseRequest
         for ($i = 1; $i <= 4; $i++) {
             $rules["step_{$i}_phase"] = 'nullable|string|max:20';
             $rules["step_{$i}_description"] = 'nullable|string|max:20';
-            $rules["step_{$i}_price"] = 'nullable|integer|min:0';
+            $rules["step_{$i}_price"] = 'nullable|string|min:0';
             $rules["step_{$i}_button"] = 'nullable|file|mimes:svg|max:10240';
         }
 
@@ -29,7 +29,7 @@ class UpdateIndexSettingRequest extends BaseRequest
 
         for ($i = 1; $i <= 3; $i++) {
             $rules["plan_{$i}_name"] = 'nullable|string|max:40';
-            $rules["plan_{$i}_price"] = 'nullable|integer|min:0';
+            $rules["plan_{$i}_price"] = 'nullable|string|min:0';
             $rules["plan_{$i}_severity"] = 'nullable|string|max:40';
             $rules["plan_{$i}_region"] = 'nullable|string|max:40';
             $rules["plan_{$i}_treatment"] = 'nullable|string|max:40';
