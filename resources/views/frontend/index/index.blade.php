@@ -303,7 +303,7 @@
                                                     <div
                                                         class="mcb-column-inner mfn-module-wrapper mcb-column-inner-592a0399c mcb-item-column-inner">
                                                         <div class="column_attr mfn-inline-editor clearfix">
-                                                            <p>{{ $indexSetting->subtitle_suitable_plan }}</p>
+                                                            <p>{!! nl2br(e($indexSetting->subtitle_suitable_plan)) !!}</p>
                                                             <div id="guidejar-container"
                                                                 style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible;">
                                                             </div>
