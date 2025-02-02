@@ -138,12 +138,12 @@
         }
 
         .clinic .dental li:nth-child(2)::before {
-            background: url("{{ asset('images/frontend/icon/clinic-phone.svg') }") no-repeat;
+            background: url("{{ asset('images/frontend/icon/clinic-phone.svg') }}") no-repeat;
             background-size: contain;
         }
 
         .clinic .dental li:last-child::before {
-            background: url("{{ asset('images/frontend/icon/clinic-time.svg') }") no-repeat;
+            background: url("{{ asset('images/frontend/icon/clinic-time.svg') }}") no-repeat;
             background-size: contain;
         }
 

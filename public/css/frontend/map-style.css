@@ -1,1 +1,101 @@
-.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title{background-position:center center;text-align:center;font-weight:bold;}.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title,.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title a{color:#CB1A1D;}.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .tabs_wrapper ul li a{font-size:20px;}.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel{padding-top:60px;padding-right:60px;padding-bottom:60px;padding-left:60px;font-size:1.1em;}.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .mcb-column-inner-ofml9jsm7{border-radius:0 0 0 0;background-color:#FFFFFF;box-shadow:inset 0 0 0 0 0;}.mcb-section .mcb-wrap .mcb-item-ofml9jsm7{flex:0 0 80%;max-width:80%;}.mcb-section .mcb-wrap .mcb-item-qevk069j{text-align:center;}.mcb-section .mcb-wrap .mcb-item-qevk069j .button{padding-top:.8em;padding-right:1.5em;padding-bottom:.8em;padding-left:1.5em;font-size:1.25em;}.mcb-section .mcb-wrap .mcb-item-qevk069j .mcb-column-inner-qevk069j{margin-top:30px;}.mcb-section .mcb-wrap .mcb-item-qevk069j .button:hover{background:#b50609;}.mcb-section .mcb-wrap-lc4q2y3uc .mcb-wrap-inner-lc4q2y3uc{justify-content:center;}.mcb-section-a67ifiqcj{padding-top:100px;background-image:url(https://www.serendipitytaiwan.com/wp-content/uploads/2024/03/serendipity_S.svg#64);background-size:38vw;background-position:-10% 100px;background-repeat:no-repeat;}.mcb-section-a67ifiqcj .mcb-section-inner-a67ifiqcj{justify-content:center;}@media(max-width: 1440px){.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel{font-size:1em;}}@media(max-width: 959px){.mcb-section .mcb-wrap .mcb-item-ofml9jsm7{flex:0 0 100%;max-width:100%;}}@media(max-width: 767px){.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel{padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;}.mcb-section .mcb-wrap .mcb-item-qevk069j .button{font-size:1.2em;}.mcb-section-a67ifiqcj{padding-top:0px;padding-right:20px;padding-left:20px;}}
+.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title {
+    background-position: center center;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title,
+.mcb-section .mcb-wrap .mcb-item-d2r6xlwx .title a {
+    color: #CB1A1D;
+}
+
+.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .tabs_wrapper ul li a {
+    font-size: 20px;
+}
+
+.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel {
+    padding-top: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
+    padding-left: 60px;
+    font-size: 1.1em;
+}
+
+.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .mcb-column-inner-ofml9jsm7 {
+    border-radius: 0 0 0 0;
+    background-color: #FFFFFF;
+    box-shadow: inset 0 0 0 0 0;
+}
+
+.mcb-section .mcb-wrap .mcb-item-ofml9jsm7 {
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+
+.mcb-section .mcb-wrap .mcb-item-qevk069j {
+    text-align: center;
+}
+
+.mcb-section .mcb-wrap .mcb-item-qevk069j .button {
+    padding-top: .8em;
+    padding-right: 1.5em;
+    padding-bottom: .8em;
+    padding-left: 1.5em;
+    font-size: 1.25em;
+}
+
+.mcb-section .mcb-wrap .mcb-item-qevk069j .mcb-column-inner-qevk069j {
+    margin-top: 30px;
+}
+
+.mcb-section .mcb-wrap .mcb-item-qevk069j .button:hover {
+    background: #b50609;
+}
+
+.mcb-section .mcb-wrap-lc4q2y3uc .mcb-wrap-inner-lc4q2y3uc {
+    justify-content: center;
+}
+
+.mcb-section-a67ifiqcj {
+    padding-top: 100px;
+    background-image: url("../../images/frontend/icon/serendipity_S.svg");
+    background-size: 38vw;
+    background-position: -10% 100px;
+    background-repeat: no-repeat;
+}
+
+.mcb-section-a67ifiqcj .mcb-section-inner-a67ifiqcj {
+    justify-content: center;
+}
+
+@media(max-width: 1440px) {
+    .mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel {
+        font-size: 1em;
+    }
+}
+
+@media(max-width: 959px) {
+    .mcb-section .mcb-wrap .mcb-item-ofml9jsm7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 767px) {
+    .mcb-section .mcb-wrap .mcb-item-ofml9jsm7 .ui-tabs .ui-tabs-panel {
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+    }
+
+    .mcb-section .mcb-wrap .mcb-item-qevk069j .button {
+        font-size: 1.2em;
+    }
+
+    .mcb-section-a67ifiqcj {
+        padding-top: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
