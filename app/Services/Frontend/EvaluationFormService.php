@@ -42,7 +42,7 @@ class EvaluationFormService
                     File::makeDirectory($uploadPath, 0777, true);
                 }
 
-                $filePath = $uploadPath . '/' . $fileName;
+                $filePath = 'upload/evaluationForm/' . $fileName;
                 file_put_contents($filePath, $image);
 
                 $data[$key] = $filePath;
