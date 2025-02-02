@@ -97,7 +97,10 @@
                         <input type="file" id="intraoral_image_1"
                             class="form-control search_input product-hover border- easein"
                             accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
-                        <img id="intraoral_image_1Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
+                        <img id="intraoral_image_1Img" class="mt-3"
+                            @if ($evaluationForm->intraoral_image_1) src="{{ asset($evaluationForm->intraoral_image_1) }}"
+                        @else
+                            src="{{ asset('images/backend/defaultImage.png') }}" @endif>
                     </div>
 
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
@@ -105,7 +108,10 @@
                         <input type="file" id="intraoral_image_2"
                             class="form-control search_input product-hover border- easein"
                             accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
-                        <img id="intraoral_image_2Img" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
+                        <img id="intraoral_image_2Img" class="mt-3"
+                            @if ($evaluationForm->intraoral_image_2) src="{{ asset($evaluationForm->intraoral_image_2) }}"
+                        @else
+                            src="{{ asset('images/backend/defaultImage.png') }}" @endif>
                     </div>
 
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
@@ -114,7 +120,9 @@
                             class="form-control search_input product-hover border- easein"
                             accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
                         <img id="intraoral_image_3Img" class="mt-3"
-                            src="{{ asset('images/backend/defaultImage.png') }}">
+                            @if ($evaluationForm->intraoral_image_3) src="{{ asset($evaluationForm->intraoral_image_3) }}"
+                        @else
+                            src="{{ asset('images/backend/defaultImage.png') }}" @endif>
                     </div>
 
                     <div class="col-3 card-body fs-6 gray_l rounded-3">
@@ -123,7 +131,9 @@
                             class="form-control search_input product-hover border- easein"
                             accept="image/gif, image/jpeg, image/png" onchange="reviewImage(this)">
                         <img id="intraoral_image_4Img" class="mt-3"
-                            src="{{ asset('images/backend/defaultImage.png') }}" />
+                            @if ($evaluationForm->intraoral_image_4) src="{{ asset($evaluationForm->intraoral_image_4) }}"
+                        @else
+                            src="{{ asset('images/backend/defaultImage.png') }}" @endif>
                     </div>
                 </div>
 
