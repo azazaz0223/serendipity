@@ -63,16 +63,16 @@
                                                                                         <dl>
                                                                                             @foreach ($clinic->businessHours as $hour)
                                                                                                 <dt>{{ $hour->day }}</dt>
-                                                                                                <dd>{{ $hour->time }}​
+                                                                                                <dd>{{ $hour->time }}
                                                                                                 </dd>
                                                                                             @endforeach
                                                                                         </dl>
                                                                                     </li>
                                                                                 </ul>
                                                                                 <div class="links">
-                                                                                    <a href="{{ $clinic->line_id }}​"
+                                                                                    <a href="{{ $clinic->line_id }}"
                                                                                         target="_blank"
-                                                                                        rel="noopener noreferrer">官方Line@​</a>
+                                                                                        rel="noopener noreferrer">官方Line@</a>
                                                                                     <a href="{{ $clinic->facebook }}"
                                                                                         target="_blank"
                                                                                         rel="noopener noreferrer">FB</a>
