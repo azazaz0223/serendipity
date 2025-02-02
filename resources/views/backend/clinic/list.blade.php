@@ -11,10 +11,10 @@
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom">
                 診所地圖列表
-                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm"
+                {{-- <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm"
                     onclick="createBtn()">
                     <i class="fas fa-plus"></i>
-                </button>
+                </button> --}}
             </h2>
 
             <div class="card-body toScroll text-nowrap">
@@ -249,51 +249,51 @@
             return formData;
         }
 
-        function createBtn() {
-            clearBtn();
-            $("#modalLabel").text('新增 診所地圖');
-            $("#saveBtn").attr("onclick", `storeBtn()`);
-            $("#modal").modal("show");
-        }
+        // function createBtn() {
+        //     clearBtn();
+        //     $("#modalLabel").text('新增 診所地圖');
+        //     $("#saveBtn").attr("onclick", `storeBtn()`);
+        //     $("#modal").modal("show");
+        // }
 
-        function storeBtn() {
-            data = handleData();
+        // function storeBtn() {
+        //     data = handleData();
 
-            $.ajax({
-                url: "{{ route('backend.clinic.store') }}",
-                type: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": csrfToken
-                },
-                data: data,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    if (response.code == '00') {
-                        Swal.fire({
-                            title: '新增成功！',
-                            icon: 'success',
-                            timer: 3000
-                        }).then((result) => {
-                            location.reload();
-                        });
-                    };
-                },
-                error: function(xhr, status, error) {
-                    alert_text = JSON.parse(xhr.responseText).message;
+        //     $.ajax({
+        //         url: "{{ route('backend.clinic.store') }}",
+        //         type: "POST",
+        //         headers: {
+        //             "X-CSRF-TOKEN": csrfToken
+        //         },
+        //         data: data,
+        //         processData: false,
+        //         contentType: false,
+        //         success: function(response) {
+        //             if (response.code == '00') {
+        //                 Swal.fire({
+        //                     title: '新增成功！',
+        //                     icon: 'success',
+        //                     timer: 3000
+        //                 }).then((result) => {
+        //                     location.reload();
+        //                 });
+        //             };
+        //         },
+        //         error: function(xhr, status, error) {
+        //             alert_text = JSON.parse(xhr.responseText).message;
 
-                    if (xhr.status == '403') {
-                        alert_text = "無此權限";
-                    }
+        //             if (xhr.status == '403') {
+        //                 alert_text = "無此權限";
+        //             }
 
-                    Swal.fire({
-                        icon: "error",
-                        title: alert_text,
-                        timer: 3000
-                    });
-                }
-            });
-        }
+        //             Swal.fire({
+        //                 icon: "error",
+        //                 title: alert_text,
+        //                 timer: 3000
+        //             });
+        //         }
+        //     });
+        // }
 
         function editBtn(id) {
             url = "{{ route('backend.clinic.show', ':id') }}";
