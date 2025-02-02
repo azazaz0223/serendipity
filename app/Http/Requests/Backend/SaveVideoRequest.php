@@ -15,7 +15,7 @@ class SaveVideoRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            "video" => "required|file|mimes:mp4,mov|max:10240",
+            "video" => "required|file|mimes:mp4,mov|max:51200",
         ];
     }
 

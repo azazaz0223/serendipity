@@ -51,6 +51,8 @@
             <div class="card-body">
                 <button type="button" class="btn btn-primary border-0 rounded-3 float-end shadow-sm px-3"
                     onclick="saveBtn()">保存</button>
+                <button type="button" class="btn btn-danger border-0 rounded-3 float-end shadow-sm px-3"
+                    onclick="clearBtn()">清除</button>
             </div>
         </div>
     </div>
@@ -59,6 +61,11 @@
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
 
         let selectedFile = null;
+
+        function clearBtn() {
+            $("#videoPreview").empty();
+            selectedFile = null;
+        }
 
         function reviewVideo(element) {
             const file = element.files[0];
