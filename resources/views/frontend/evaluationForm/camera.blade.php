@@ -41,8 +41,7 @@
                                                         class="mcb-column-inner mcb-column-inner-57844b947 mcb-item-column-inner">
                                                         <div class="column_attr mfn-inline-editor clearfix">
                                                             <div class="framedesc">
-                                                                <img class="scale-with-grid js-camera-tips-picture"
-                                                                    src="images/photo1.jpg">
+                                                                <img class="scale-with-grid js-camera-tips-picture">
                                                                 <p class="js-camera-tips-text">
                                                                     <span>正面照</span>自然的咬合並微笑後牙咬緊<br>避免下顎刻意與上顎對齊
                                                                 </p>
