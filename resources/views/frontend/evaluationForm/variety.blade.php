@@ -77,7 +77,7 @@
                                                     <div
                                                         class="mcb-column-inner mcb-column-inner-361ed5660 mcb-item-column-inner">
                                                         <div class="column_attr mfn-inline-editor clearfix">
-                                                            <div class="tooth active" data-dentition-problem-option="1">
+                                                            <div class="tooth" data-dentition-problem-option="1">
                                                                 <img class="scale-with-grid"
                                                                     src="{{ asset('images/frontend/icon/tooth1.svg') }}">
                                                             </div>
@@ -181,7 +181,7 @@
                                                     <div
                                                         class="mcb-column-inner mcb-column-inner-80426864c mcb-item-column-inner">
                                                         <div class="column_attr mfn-inline-editor clearfix">
-                                                            <div class="tooth" data-dentition-problem-option="7">
+                                                            <div class="tooth active" data-dentition-problem-option="7">
                                                                 <img class="scale-with-grid"
                                                                     src="{{ asset('images/frontend/icon/tooth9.png') }}">
                                                             </div>
