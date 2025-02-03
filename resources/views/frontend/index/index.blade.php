@@ -20,8 +20,10 @@
                                         <div class="carousel-inner">
                                             @foreach ($carousels as $carousel)
                                                 <div class="carousel-item @if ($loop->first) active @endif">
-                                                    <img class="w-100 d-block" src="{{ asset($carousel->image) }}"
-                                                        alt="Image">
+                                                    <a href="{{ $carousel->link }}">
+                                                        <img class="w-100 d-block" src="{{ asset($carousel->image) }}"
+                                                            alt="{{ $carousel->name }}">
+                                                    </a>
                                                     <div class="carousel-caption"></div>
                                                 </div>
                                             @endforeach

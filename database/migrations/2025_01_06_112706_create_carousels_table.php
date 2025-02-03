@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
             $table->string('name')->comment('名稱');
-            $table->text('link')->comment('連結');
+            $table->text('link')->nullable()->comment('連結');
             $table->string('image')->nullable()->comment('圖片');
             $table->boolean('status')->default(0)->comment('狀態');
             $table->integer('sort')->default(0)->comment('排序');
