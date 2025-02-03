@@ -20,7 +20,7 @@ class FindEvaluationFormRequest extends BaseRequest
             'ended_at' => 'nullable|date|after_or_equal:started_at',
             'status' => 'nullable|in:' . implode(',', EvaluationForm::STATUS),
             'name' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255',
+            'email' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:15|regex:/^\d+$/',
             'is_upload' => 'nullable|in:0,1',
             'question' => 'nullable|in:戽斗(反咬),開咬,齒列擁擠,錯咬,暴牙,深咬,牙縫過大,二次矯正,我不確定',
