@@ -16,10 +16,10 @@ class UpdateCarouselRequest extends BaseRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'link' => 'required|url',
+            'link' => 'nullable|url',
             'status' => 'required|boolean',
             'sort' => 'nullable|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240|dimensions:width=1920,height=1080',
         ];
     }
 
@@ -39,6 +39,10 @@ class UpdateCarouselRequest extends BaseRequest
             'status.boolean' => '上架狀態必須是布林值。',
             'sort.integer' => '排序必須是整數。',
             'sort.min' => '排序不能小於 0。',
+            'image.image' => '圖片必須是有效的圖像文件。',
+            'image.mimes' => '圖片格式必須是 jpeg、png、jpg 或 gif。',
+            'image.max' => '圖片大小不能超過 10MB。',
+            'image.dimensions' => '圖片尺寸必須為 1920x1080！',
         ];
     }
 }

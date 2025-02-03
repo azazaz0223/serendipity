@@ -16,10 +16,10 @@ class CreateCarouselRequest extends BaseRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'link' => 'required|url',
+            'link' => 'nullable|url',
             'status' => 'required|boolean',
             'sort' => 'nullable|integer|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240|dimensions:width=1920,height=1080',
         ];
     }
 
@@ -33,7 +33,6 @@ class CreateCarouselRequest extends BaseRequest
         return [
             'name.required' => '名稱是必填的。',
             'name.string' => '名稱必須是字串。',
-            'link.required' => '連結是必填的。',
             'link.url' => '連結必須是有效的 URL。',
             'status.required' => '上架狀態是必填的。',
             'status.boolean' => '上架狀態必須是布林值。',
@@ -43,6 +42,7 @@ class CreateCarouselRequest extends BaseRequest
             'image.image' => '圖片必須是有效的圖像文件。',
             'image.mimes' => '圖片格式必須是 jpeg、png、jpg 或 gif。',
             'image.max' => '圖片大小不能超過 10MB。',
+            'image.dimensions' => '圖片尺寸必須為 1920x1080！',
         ];
     }
 }

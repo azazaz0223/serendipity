@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">上傳圖片(只接受jpg、png)</label>
+                            <label class="form-label">上傳圖片(只接受jpg、png,尺寸建議1920*1080)</label>
                             <input type="file" id="image" class="form-control easein" accept="image/jpeg, image/png"
                                 onchange="reviewImage(this)">
                             <img id="preview_image"class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}" />
