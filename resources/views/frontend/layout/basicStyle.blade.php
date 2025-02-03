@@ -30,17 +30,6 @@
 
 
 <script type="text/javascript">
-    /* <![CDATA[ */
-    window._wpemojiSettings = {
-        "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/",
-        "ext": ".png",
-        "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/",
-        "svgExt": ".svg",
-        "source": {
-            "concatemoji": "https:\/\/www.serendipitytaiwan.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"
-        }
-    };
-
     ! function(i, n) {
         var o, s, e;
 
@@ -150,7 +139,7 @@
                     .concatemoji) : e
                 .wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)))
         }))
-    }((window, document), window._wpemojiSettings);
+    }((window, document));
     /* ]]> */
 </script>
 

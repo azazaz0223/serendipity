@@ -34,10 +34,6 @@ class FindCaseShareRequest extends BaseRequest
             'ended_at.date' => '查詢結束日期必須是有效的日期格式。',
             'started_at.before_or_equal' => '開始日期不能晚於結束日期。',
             'ended_at.after_or_equal' => '結束日期不能早於開始日期。',
-            'status.in' => '狀態選項無效。',
-            'email.email' => 'Email 格式不正確。',
-            'phone.regex' => '手機號碼只能包含數字。',
-            'question.in' => '請選擇有效的齒列問題選項。',
         ];
     }
 }

@@ -253,8 +253,6 @@
             }
         },
         "home_url": "",
-        "home_url_lang": "https:\/\/www.serendipitytaiwan.com",
-        "site_url": "https:\/\/www.serendipitytaiwan.com",
         "translation": {
             "success_message": "Link copied to the clipboard.",
             "error_message": "Something went wrong. Please try again later!"

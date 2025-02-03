@@ -310,13 +310,6 @@
 
                 if ($("#improvements").val() != "") {
                     data.improvements = $("#improvements").val();
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "請輸入主要想改善的地方",
-                        timer: 3000
-                    });
-                    return;
                 }
 
                 $.ajax({
