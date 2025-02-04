@@ -41,7 +41,6 @@ jQuery(document).ready(function () {
     });
 
     function initView() {
-        console.log(assessmentHandler);
         assessmentHandler.load();
 
         jQuery(".js-loading-svg").css('display', 'none');

@@ -20,7 +20,7 @@ class CreateEvaluationFormRequest extends BaseRequest
             'phone' => 'required|string|max:10',
             'email' => 'required|email|max:255',
             'question' => 'required|string',
-            'improvements' => 'required|string',
+            'improvements' => 'nullable|string',
         ];
 
         return $rules;

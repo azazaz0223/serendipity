@@ -44,7 +44,8 @@ jQuery(document).ready(function () {
         ).attr("src");
         assessmentHandler.save();
 
-        history.go(-1);
+        let prevPage = document.referrer;
+        location.href = prevPage;
     });
 
     function initView() {
@@ -85,7 +86,8 @@ jQuery(document).ready(function () {
             jQuery(".js-reshot-photo-button").hide();
             jQuery(".js-confirm-photo-button").hide();
         } else {
-            history.go(-1);
+            let prevPage = document.referrer;
+            location.href = prevPage;
         }
     }
 
@@ -132,5 +134,11 @@ jQuery(document).ready(function () {
             flip_horiz: true,
             fps: 45,
         });
+    }
+});
+
+window.addEventListener("pageshow", function (event) {
+    if (event.persisted) { // 檢查是否來自快取
+        this.location.reload();
     }
 });

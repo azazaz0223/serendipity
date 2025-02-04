@@ -16,7 +16,7 @@ class CreateCarouselRequest extends BaseRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'link' => 'nullable|url',
+            'link' => 'nullable|string',
             'status' => 'required|boolean',
             'sort' => 'nullable|integer|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
@@ -33,7 +33,6 @@ class CreateCarouselRequest extends BaseRequest
         return [
             'name.required' => '名稱是必填的。',
             'name.string' => '名稱必須是字串。',
-            'link.url' => '連結必須是有效的 URL。',
             'status.required' => '上架狀態是必填的。',
             'status.boolean' => '上架狀態必須是布林值。',
             'sort.integer' => '排序必須是整數。',

@@ -43,6 +43,9 @@ class EvaluationFormController extends Controller
      */
     public function show(EvaluationForm $evaluationForm)
     {
+        if ($evaluationForm->status > 0) {
+            return redirect(route('frontend.index'));
+        }
         return view("frontend.evaluationForm.detail", compact('evaluationForm'));
     }
 
@@ -51,6 +54,9 @@ class EvaluationFormController extends Controller
      */
     public function camera(EvaluationForm $evaluationForm)
     {
+        if ($evaluationForm->status > 0) {
+            return redirect(route('frontend.index'));
+        }
         return view("frontend.evaluationForm.camera", compact('evaluationForm'));
     }
 

@@ -59,29 +59,10 @@
                                                             </time>
                                                         </span>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <!-- Banner Start -->
-                                    <div class="column one single-photo-wrapper image">
-                                        <div class="mcb-column-inner">
-                                            <div class="image_frame scale-with-grid disabled">
-
-                                                <div class="image_wrapper">
-                                                    <div itemprop="image">
-                                                        <img width="1200" height="480"
-                                                            src="{{ asset($caseShare->image) }}"
-                                                            class="scale-with-grid wp-post-image" decoding="async">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </header>
 

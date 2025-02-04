@@ -20,7 +20,7 @@ class CarouselService
     {
         $carousel = [
             'name' => $request['name'],
-            'link' => $request['link'],
+            'link' => $request['link'] === '' ? null : $request['link'],
             'status' => $request['status'],
             'sort' => $request['sort'],
         ];

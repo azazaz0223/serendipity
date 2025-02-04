@@ -305,8 +305,8 @@
                 }
 
                 if ($("#email").val() != "") {
-                    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                    if (!emailPattern.test(email)) {
+                    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test($("#email").val())) {
                         Swal.fire({
                             icon: "error",
                             title: "請輸入正確email格式",
@@ -326,7 +326,7 @@
 
                 if ($("#phone").val() != "") {
                     let phonePattern = /^09\d{8}$/;
-                    if (!phonePattern.test(phone)) {
+                    if (!phonePattern.test($("#phone").val())) {
                         Swal.fire({
                             icon: "error",
                             title: "請輸入有效的手機號碼 (09xxxxxxxx)",

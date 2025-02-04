@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="覓秘, 覓秘, 覓秘">
 <meta name="description" content="覓秘 最懂「你」的輕矯正 Serendipity">
@@ -85,10 +86,7 @@
             var t = i.createElement("script");
             t.src = e, t.defer = !0, i.head.appendChild(t)
         }
-        "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = {
-            everything: !0,
-            everythingExceptFlag: !0
-        }, e = new Promise(function(e) {
+        e = new Promise(function(e) {
             i.addEventListener("DOMContentLoaded", e, {
                 once: !0
             })
@@ -138,7 +136,7 @@
             n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e
                     .concatemoji) : e
                 .wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)))
-        }))
+        })
     }((window, document));
     /* ]]> */
 </script>
