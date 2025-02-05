@@ -18,7 +18,7 @@ class EvaluationFormRepository
             $query->whereDate('created_at', '<=', $request['ended_at']);
         }
 
-        if (!empty($request['status'])) {
+        if ($request['status'] != "") {
             $query->where('status', $request['status']);
         }
 
