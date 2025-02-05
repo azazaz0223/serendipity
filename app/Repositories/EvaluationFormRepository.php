@@ -34,7 +34,7 @@ class EvaluationFormRepository
             $query->where('phone', 'like', '%' . $request['phone'] . '%');
         }
 
-        if (!empty($request['is_upload'])) {
+        if ($request['is_upload'] != "") {
             if ($request['is_upload'] == 1) {
                 $query->where(function ($query) {
                     $query->whereNotNull('intraoral_image_1')
