@@ -29,8 +29,6 @@ class EvaluationFormService
 
     public function update($id, $request)
     {
-        $data['status'] = 1;
-
         foreach ($request->all() as $key => $value) {
             if (preg_match('/^intraoral_image_\d+$/', $key) && !empty($value)) {
                 $imageBase64 = explode(',', $value)[1];
