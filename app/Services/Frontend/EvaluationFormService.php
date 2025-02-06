@@ -29,6 +29,8 @@ class EvaluationFormService
 
     public function update($id, $request)
     {
+        $data = [];
+
         foreach ($request->all() as $key => $value) {
             if (preg_match('/^intraoral_image_\d+$/', $key) && !empty($value)) {
                 $imageBase64 = explode(',', $value)[1];
@@ -47,6 +49,10 @@ class EvaluationFormService
             }
         }
 
-        return $this->evaluationFormRepository->update($id, $data);
+        if (count($data) > 0) {
+            return $this->evaluationFormRepository->update($id, $data);
+        } else {
+            return true;
+        }
     }
 }

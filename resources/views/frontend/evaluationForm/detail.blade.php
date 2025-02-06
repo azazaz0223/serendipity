@@ -350,6 +350,7 @@
                                 icon: 'success',
                                 timer: 3000
                             }).then((result) => {
+                                assessmentHandler.remove();
                                 location.href = "{{ route('frontend.index') }}";
                             });
                         };
