@@ -47,6 +47,10 @@ class EvaluationFormService
             }
         }
 
-        return $this->evaluationFormRepository->update($id, $data);
+        if (count($data) > 0) {
+            return $this->evaluationFormRepository->update($id, $data);
+        } else {
+            return true;
+        }
     }
 }
