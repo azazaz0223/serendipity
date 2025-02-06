@@ -10,7 +10,7 @@ var assessmentHandler = {
         area: '',
         age: '',
         referral: '',
-        dentition_problem_option: '1',
+        dentition_problem_option: '8',
         expect_improve_problem: '',
         photos: [],
 
@@ -53,7 +53,7 @@ var assessmentHandler = {
         assessmentHandler.info.age = '';
         assessmentHandler.info.referral = '';
         assessmentHandler.info.line = '';
-        assessmentHandler.info.dentition_problem_option = '1';
+        assessmentHandler.info.dentition_problem_option = '8';
         assessmentHandler.info.expect_improve_problem = '';
         assessmentHandler.info.photos = new Array(assessmentHandler.cameraTips.length).fill(null);
 
@@ -65,6 +65,14 @@ var assessmentHandler = {
     save: function () {
         try {
             window.localStorage.setItem(assessmentHandler.keyName, JSON.stringify(assessmentHandler.info));
+        } catch (err) {
+            console.log(err);
+        }
+    },
+
+    remove: function () {
+        try {
+            window.localStorage.removeItem(assessmentHandler);
         } catch (err) {
             console.log(err);
         }
@@ -118,7 +126,7 @@ var assessmentHandler = {
         assessmentHandler.info.area = '大安區';
         assessmentHandler.info.age = '18';
         assessmentHandler.info.referral = 'Tom';
-        assessmentHandler.info.dentition_problem_option = '3';
+        assessmentHandler.info.dentition_problem_option = '8';
         assessmentHandler.info.expect_improve_problem = 'None';
         assessmentHandler.info.photos = new Array(assessmentHandler.cameraTips.length).fill(null);
 

@@ -168,7 +168,7 @@
                                                     <div
                                                         class="mcb-column-inner mcb-column-inner-80426864c mcb-item-column-inner">
                                                         <div class="column_attr mfn-inline-editor clearfix">
-                                                            <div class="tooth" data-dentition-problem-option="7">
+                                                            <div class="tooth" data-dentition-problem-option="8">
                                                                 <img class="scale-with-grid"
                                                                     src="{{ asset('images/frontend/icon/tooth8.svg') }}">
                                                             </div>
