@@ -75,10 +75,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
         // 診療心得分享模組
         Route::group(['namespace' => 'ShareExperience', 'prefix' => 'shareExperience'], function () {
             Route::get('', [ShareExperienceController::class, 'index'])->name('backend.shareExperience.index');
-            Route::post('api', [ShareExperienceController::class, 'store'])->name('backend.shareExperience.store');
+            // Route::post('api', [ShareExperienceController::class, 'store'])->name('backend.shareExperience.store');
             Route::get('api/{shareExperience}', [ShareExperienceController::class, 'show'])->name('backend.shareExperience.show');
             Route::patch('api/{shareExperience}', [ShareExperienceController::class, 'update'])->name('backend.shareExperience.update');
-            Route::delete('api/{shareExperience}', [ShareExperienceController::class, 'destroy'])->name('backend.shareExperience.delete');
+            // Route::delete('api/{shareExperience}', [ShareExperienceController::class, 'destroy'])->name('backend.shareExperience.delete');
         });
 
         // Q&A 模組
