@@ -12,10 +12,6 @@
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom">
                 診療心得分享列表
-                {{-- <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm"
-                    onclick="createBtn()">
-                    <i class="fas fa-plus"></i>
-                </button> --}}
             </h2>
 
             <div class="card-body toScroll text-nowrap">
@@ -52,10 +48,6 @@
                                         onclick="editBtn({{ $shareExperience->id }})">
                                         <i class="far fa-edit"></i>
                                     </button>
-                                    {{-- <button type="button" onclick="deleteConfirmBtn({{ $shareExperience->id }})"
-                                        class="btn btn-light rounded-3 shadow-sm">
-                                        <i class="fas fa-times"></i>
-                                    </button> --}}
                                 </td>
                             </tr>
                         @endforeach
@@ -166,52 +158,6 @@
             return formData;
         }
 
-        // function createBtn() {
-        //     clearBtn();
-        //     $("#modalLabel").text('新增 診療心得分享');
-        //     $("#saveBtn").attr("onclick", `storeBtn()`);
-        //     $("#modal").modal("show");
-        // }
-
-        // function storeBtn() {
-        //     data = handleData();
-
-        //     $.ajax({
-        //         url: "{{ route('backend.shareExperience.store') }}",
-        //         type: "POST",
-        //         headers: {
-        //             "X-CSRF-TOKEN": csrfToken
-        //         },
-        //         data: data,
-        //         processData: false,
-        //         contentType: false,
-        //         success: function(response) {
-        //             if (response.code == '00') {
-        //                 Swal.fire({
-        //                     title: '新增成功！',
-        //                     icon: 'success',
-        //                     timer: 3000
-        //                 }).then((result) => {
-        //                     location.reload();
-        //                 });
-        //             };
-        //         },
-        //         error: function(xhr, status, error) {
-        //             alert_text = JSON.parse(xhr.responseText).message;
-
-        //             if (xhr.status == '403') {
-        //                 alert_text = "無此權限";
-        //             }
-
-        //             Swal.fire({
-        //                 icon: "error",
-        //                 title: alert_text,
-        //                 timer: 3000
-        //             });
-        //         }
-        //     });
-        // }
-
         function editBtn(id) {
             url = "{{ route('backend.shareExperience.show', ':id') }}";
             url = url.replace(':id', id);
@@ -300,55 +246,5 @@
                 }
             });
         }
-
-        // function deleteConfirmBtn(id) {
-        //     Swal.fire({
-        //         title: '確認要刪除嗎？',
-        //         text: '刪除後無法撤銷！',
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#3085d6',
-        //         cancelButtonColor: '#d33',
-        //         confirmButtonText: '是的，刪除！',
-        //         cancelButtonText: '取消',
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             url = "{{ route('backend.shareExperience.delete', ':id') }}";
-        //             url = url.replace(':id', id);
-        //             $.ajax({
-        //                 url: url,
-        //                 type: "DELETE",
-        //                 headers: {
-        //                     "X-CSRF-TOKEN": csrfToken
-        //                 },
-        //                 success: function(response) {
-        //                     if (response.code == '00') {
-        //                         Swal.fire({
-        //                             title: '刪除成功！',
-        //                             icon: 'success',
-        //                             timer: 3000
-        //                         }).then((result) => {
-        //                             location.reload();
-        //                         });
-        //                     }
-        //                 },
-        //                 error: function(xhr, status, error) {
-        //                     alert_text = JSON.parse(xhr.responseText).message;
-
-        //                     if (xhr.status == '403') {
-        //                         alert_text = "無此權限";
-        //                     }
-
-        //                     Swal.fire({
-        //                         icon: "error",
-        //                         title: alert_text,
-        //                         showConfirmButton: false,
-        //                         timer: 3000
-        //                     });
-        //                 }
-        //             });
-        //         }
-        //     });
-        // }
     </script>
 @endsection
