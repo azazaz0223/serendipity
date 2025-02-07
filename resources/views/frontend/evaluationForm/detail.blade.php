@@ -327,12 +327,6 @@
                 });
 
                 formData.append('_method', 'PATCH');
-                // Swal.fire({
-                //     title: formData.get('intraoral_image_1'),
-                //     icon: 'success',
-                //     timer: 3000
-                // });
-                // return
 
                 $.ajax({
                     url: url,
@@ -350,7 +344,7 @@
                                 icon: 'success',
                                 timer: 3000
                             }).then((result) => {
-                                assessmentHandler.remove();
+                                assessmentHandler.init();
                                 location.href = "{{ route('frontend.index') }}";
                             });
                         };

@@ -70,14 +70,6 @@ var assessmentHandler = {
         }
     },
 
-    remove: function () {
-        try {
-            window.localStorage.removeItem(assessmentHandler);
-        } catch (err) {
-            console.log(err);
-        }
-    },
-
     load: function () {
         try {
             let data = window.localStorage.getItem(assessmentHandler.keyName);
