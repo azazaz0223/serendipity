@@ -108,7 +108,7 @@
                             <th class=""></th>
                             <th>留言日期</th>
                             <th>姓名</th>
-                            <th>Email</th>
+                            <th>諮詢備註</th>
                             <th>手機</th>
                             <th>齒列問題</th>
                             <th>照片</th>
@@ -123,7 +123,7 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $evaluationForm->created_at }}</td>
                                 <td>{{ $evaluationForm->name }}</td>
-                                <td>{{ $evaluationForm->email }}</td>
+                                <td>{{ $evaluationForm->notes }}</td>
                                 <td>{{ $evaluationForm->phone }}</td>
                                 <td>{{ $evaluationForm->question }}</td>
                                 @if (
