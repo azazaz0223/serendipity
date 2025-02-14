@@ -963,7 +963,7 @@
                                                                             <i class="icon-plus acc-icon-plus"
                                                                                 aria-hidden="true"></i>
                                                                             <i class="icon-minus acc-icon-minus"
-                                                                                aria-hidden="true"></i>"{{ $question->title }}"
+                                                                                aria-hidden="true"></i>{{ $question->title }}
                                                                         </div>
                                                                         <div class="answer">
                                                                             {{ $question->answer }}
